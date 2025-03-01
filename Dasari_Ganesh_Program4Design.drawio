@@ -26,7 +26,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--17" value="Transaction" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1500" y="487" width="250" height="216" as="geometry">
+          <mxGeometry x="1500" y="487" width="250" height="133" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -43,7 +43,7 @@
           <mxGeometry y="92" width="250" height="26" as="geometry" />
         </mxCell>
         <mxCell id="roGSfWZPy45dmpPLqd18-1" value="Comedy" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="30" y="840" width="250" height="216" as="geometry">
+          <mxGeometry x="30" y="840" width="250" height="170" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -65,11 +65,8 @@
         <mxCell id="roGSfWZPy45dmpPLqd18-7" value="Movie(int stock, string director, string title, int yearReleased)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-1" vertex="1">
           <mxGeometry y="138" width="250" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="roGSfWZPy45dmpPLqd18-8" value="Output As Label" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-1" vertex="1">
-          <mxGeometry y="170" width="250" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="roGSfWZPy45dmpPLqd18-9" value="Drama" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="390" y="840" width="250" height="216" as="geometry">
+          <mxGeometry x="390" y="840" width="250" height="180" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -91,11 +88,8 @@
         <mxCell id="roGSfWZPy45dmpPLqd18-15" value="Movie(int stock, string director, string title, int yearReleased)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-9" vertex="1">
           <mxGeometry y="138" width="250" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="roGSfWZPy45dmpPLqd18-16" value="Output As Label" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-9" vertex="1">
-          <mxGeometry y="170" width="250" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="roGSfWZPy45dmpPLqd18-17" value="Classics" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="750" y="840" width="250" height="216" as="geometry">
+          <mxGeometry x="750" y="840" width="250" height="170" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -117,9 +111,6 @@
         <mxCell id="roGSfWZPy45dmpPLqd18-23" value="Movie(int stock, string director, string title, int yearReleased)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-17" vertex="1">
           <mxGeometry y="138" width="250" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="roGSfWZPy45dmpPLqd18-24" value="Output As Label" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="roGSfWZPy45dmpPLqd18-17" vertex="1">
-          <mxGeometry y="170" width="250" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="A8nDIDXmresRBPx-nF1l-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ph5dIiC6Vtvafx36c-TX-0" target="A8nDIDXmresRBPx-nF1l-1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -129,7 +120,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ph5dIiC6Vtvafx36c-TX-0" value="Movie" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="400" y="487" width="250" height="216" as="geometry">
+          <mxGeometry x="390" y="400" width="250" height="326" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -151,8 +142,23 @@
         <mxCell id="ph5dIiC6Vtvafx36c-TX-6" value="Movie(int stock, string director, string title, int yearReleased)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ph5dIiC6Vtvafx36c-TX-0" vertex="1">
           <mxGeometry y="138" width="250" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="ph5dIiC6Vtvafx36c-TX-7" value="Output As Label" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ph5dIiC6Vtvafx36c-TX-0" vertex="1">
+        <mxCell id="ph5dIiC6Vtvafx36c-TX-7" value="bool operator==(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="ph5dIiC6Vtvafx36c-TX-0" vertex="1">
           <mxGeometry y="170" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A8nDIDXmresRBPx-nF1l-126" value="bool operator!=(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ph5dIiC6Vtvafx36c-TX-0">
+          <mxGeometry y="196" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A8nDIDXmresRBPx-nF1l-122" value="bool operator&lt;(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ph5dIiC6Vtvafx36c-TX-0">
+          <mxGeometry y="222" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A8nDIDXmresRBPx-nF1l-123" value="bool operator&gt;(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ph5dIiC6Vtvafx36c-TX-0">
+          <mxGeometry y="248" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A8nDIDXmresRBPx-nF1l-124" value="bool operator&gt;=(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ph5dIiC6Vtvafx36c-TX-0">
+          <mxGeometry y="274" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A8nDIDXmresRBPx-nF1l-125" value="bool operator&lt;=(const Movie&amp; rhs)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ph5dIiC6Vtvafx36c-TX-0">
+          <mxGeometry y="300" width="250" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ph5dIiC6Vtvafx36c-TX-8" value="History" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1350" y="840" width="250" height="92" as="geometry">
@@ -180,7 +186,7 @@
           <mxGeometry y="34" width="250" height="32" as="geometry" />
         </mxCell>
         <mxCell id="ph5dIiC6Vtvafx36c-TX-24" value="Return" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1950" y="840" width="250" height="180" as="geometry">
+          <mxGeometry x="1950" y="840" width="250" height="150" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
