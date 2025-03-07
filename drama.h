@@ -4,11 +4,12 @@
 
 #ifndef DRAMA_H
 #define DRAMA_H
+#include "movie.h"
 
 
-
-class drama {
-
+class Drama : public Movie {
+    public:
+        Drama(int stock, string director, string title, int yearReleased): Movie(stock, director, title, yearReleased) {}
 };
 
 

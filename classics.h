@@ -4,6 +4,7 @@
 
 #ifndef CLASSICS_H
 #define CLASSICS_H
+#include "movie.h"
 
 #include <string>
 using namespace std;

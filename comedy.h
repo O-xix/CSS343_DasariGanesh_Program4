@@ -4,11 +4,11 @@
 
 #ifndef COMEDY_H
 #define COMEDY_H
+#include "movie.h"
 
 
-
-class comedy {
-
+class Comedy : public Movie {
+    Comedy(int stock, string director, string title, int yearReleased): Movie(stock, director, title, yearReleased) {}
 };
 
 
