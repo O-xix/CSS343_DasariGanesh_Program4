@@ -6,7 +6,9 @@
 #include <fstream>
 using namespace std;
 
-int main(int argc, char *argv[]) {
+
+int main() {
+//int main(int argc, char *argv[]) {
     // Requires three files, in this order: Movies, Customers, Commands
     /*
     if (argc != 4) {
@@ -27,6 +29,8 @@ int main(int argc, char *argv[]) {
     movieFile.open("data4movies.txt");
     customerFile.open("data4customers.txt");
     commandsFile.open("data4commands.txt");
+
+
 
 
 }

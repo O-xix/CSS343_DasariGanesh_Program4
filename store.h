@@ -7,6 +7,9 @@
 
 #include <string>
 #include <vector>
+#include "customer.h"
+#include "movie.h"
+#include "hashmap.h"
 using namespace std;
 
 class Store{

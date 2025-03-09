@@ -8,6 +8,14 @@
 using namespace std;
 
 template <typename K, typename V>
+struct Node {
+    K key;
+    V value;
+    Node *next;
+    Node(K key, V value) : key(key), value(value), next(nullptr) {};
+};
+
+template <typename K, typename V>
 class HashMap {
 public:
     HashMap(int capacity);
@@ -32,17 +40,10 @@ public:
     //To check if a key is already within the Map
     //Again, would follow the same value as the get() method to find the key, returns true or false if the key was found.
 private:
-    struct Node {
-      K key;
-      V value;
-      Node *next;
-      Node(K key, V value) : key(key), value(value), next(nullptr) {}
-    };
-
     Node<K, V>** table; //Pointer to an array of LinkedlList Nodes with LinkedLists attached to those.
     int capacity; //Fixed size for hash table
     int size; //Tracks number of elements
-}
+};
 
 
 

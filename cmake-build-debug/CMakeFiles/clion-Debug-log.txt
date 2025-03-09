@@ -1,16 +1,4 @@
 /home/NETID/tdasari/.cache/JetBrains/RemoteDev/dist/bca632c2fbeff_CLion-2024.3.1.1/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/NETID/tdasari/.cache/JetBrains/RemoteDev/dist/bca632c2fbeff_CLion-2024.3.1.1/bin/ninja/linux/x64/ninja -DCMAKE_CXX_COMPILER=/bin/g++ -G Ninja -S "/home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4" -B "/home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4/cmake-build-debug"
--- The C compiler identification is GNU 8.5.0
--- The CXX compiler identification is GNU 8.5.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /bin/g++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Configuring done (6.4s)
+-- Configuring done (0.4s)
 -- Generating done (0.1s)
 -- Build files have been written to: /home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4/cmake-build-debug
