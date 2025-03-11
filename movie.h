@@ -25,6 +25,16 @@ public:
     bool operator<=(const Movie& rhs); //Less than or equal to operator overload
     bool operator>=(const Movie& rhs); //Greater than or equal to operator overload
     //All comparison operators would be used to sort, therefore would follow sorting criteria laid out for each genre
+
+    //Getters and setters for all fields
+    int getStock();
+    void setStock(int stock);
+    string getDirector();
+    void setDirector(string director);
+    string getTitle();
+    void setTitle(string title);
+    int getYearReleased();
+    void setYearReleased(int year_released);
 private:
     int stock; //Stores number of DVDs this particular movie has
     string director; //Stores name of director

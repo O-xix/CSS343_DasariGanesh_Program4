@@ -6,9 +6,42 @@
 #include <string>
 using namespace std;
 
-Movie::Movie(int stock, string director, string title, int release_year) {
+Movie::Movie(int stock, string director, string title, int year_released) {
     this->stock = stock;
     this->director = director;
     this->title = title;
-    this->release_year = release_year;
+    this->year_released = year_released;
 }
+
+string Movie::getDirector() {
+    return director;
+}
+
+string Movie::getTitle() {
+    return title;
+}
+
+int Movie::getYearReleased() {
+    return year_released;
+}
+
+int Movie::getStock() {
+    return stock;
+}
+
+void Movie::setDirector(string director) {
+    this->director = director;
+}
+
+void Movie::setTitle(string title) {
+    this->title = title;
+}
+
+void Movie::setYearReleased(int year_released) {
+    this->year_released = year_released;
+}   
+
+void Movie::setStock(int stock) {
+    this->stock = stock;
+}
+
