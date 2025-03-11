@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 
+#include "store.h"
+
 
 int main() {
 //int main(int argc, char *argv[]) {
@@ -23,14 +25,13 @@ int main() {
     */
 
     // Have a static way of grabbing the files
-    ifstream movieFile;
-    ifstream customerFile;
-    ifstream commandsFile;
-    movieFile.open("data4movies.txt");
-    customerFile.open("data4customers.txt");
-    commandsFile.open("data4commands.txt");
+    
+    // Create new Store
+    Store store;
 
-
+    store.initInventory("data4movies.txt");
+    store.initCustomers("data4customers.txt");
+    store.processCommands("data4commands.txt");
 
 
 }

@@ -14,6 +14,8 @@ using namespace std;
 
 class Store{
 public:
+    Store();
+
     void initInventory(const string& filename);
         //Read movie file using fstream
         //Create movie objects through constructors and if conditionals to ascertain movie genre
