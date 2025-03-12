@@ -40,6 +40,8 @@ public:
         //Print all movies in sorted order, assuming that they are already sorted in sortedMovies
     Customer* getCustomer(int id);
         //Return customer object from customers HashMap
+    Movie* getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released);
+        //Return movie object from inventory
 private:
     HashMap<int, Customer> customers; //Enables fast lookup of customers by ID
     HashMap<string, Movie*> inventory; //Enables fast lookup of movies by title

@@ -72,3 +72,10 @@ void Store::displayInventory() {
 Customer Store::getCustomer(int id) {
     return customers.get(id);
 }
+
+Movie Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
+    if (title != "###") {
+        return inventory.get(title);
+    }
+    // Default return?
+}

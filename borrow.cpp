@@ -7,9 +7,19 @@
 using namespace std;
 
 void Borrow::process(Store* store) {
-    movie.borrow();
+    movie = store->getMovie(media_type, genre, director, actor, title, month_released, year_released);
+    if (movie == nullptr) {
+        cout << ">> Movie not found." << endl;
+        return;
+    }
+    store->getCustomer(customer_id)->addTransaction(*this);
+    if (movie->getStock() == 0) {
+        cout << ">> Movie out of stock." << endl;
+        return;
+    }
+    movie->decrementStock();
 }
 
-void Borrow::print(Store* store) {
-    cout << "Borrowed " << store..getTitle() << " by " << movie.getDirector() << endl;
+void Borrow::print() {
+    cout << "Borrowed " << movie->getTitle() << " by " << movie->getDirector() << endl;
 }

@@ -45,3 +45,10 @@ void Movie::setStock(int stock) {
     this->stock = stock;
 }
 
+void Movie::decrementStock() {
+    stock--;
+}
+
+void Movie::incrementStock() {
+    stock++;
+}

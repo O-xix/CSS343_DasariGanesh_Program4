@@ -35,6 +35,9 @@ public:
     void setTitle(string title);
     int getYearReleased();
     void setYearReleased(int year_released);
+
+    void decrementStock(); //Decrements stock by 1
+    void incrementStock(); //Increments stock by 1
 private:
     int stock; //Stores number of DVDs this particular movie has
     string director; //Stores name of director

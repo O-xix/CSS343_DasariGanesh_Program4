@@ -6,14 +6,20 @@
 #include <iostream>
 using namespace std;
 
-Return::Return() {
-    transaction_type = 'R';
-}
-
-void Return::process() {
-    movie.returnMovie();
+void Return::process(Store* store) {
+    movie = store->getMovie(media_type, genre, director, actor, title, month_released, year_released);
+    if (movie == nullptr) {
+        cout << ">> Movie not found." << endl;
+        return;
+    }
+    store->getCustomer(customer_id)->addTransaction(*this);
+    if (movie->getStock() == 0) {
+        cout << ">> Movie out of stock." << endl;
+        return;
+    }
+    movie->decrementStock();
 }
 
 void Return::print() {
-    cout << "Returned " << movie.getTitle() << " by " << movie.getDirector() << endl;
+    cout << "Returned " << movie->getTitle() << " by " << movie->getDirector() << endl;
 }
