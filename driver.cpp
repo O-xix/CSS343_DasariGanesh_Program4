@@ -29,7 +29,7 @@ int main() {
     // Create new Store
     Store store;
 
-    store.initInventory("data4movies.txt");
+    store.initInventory("data4movies.txt");//lol venom
     store.initCustomers("data4customers.txt");
     store.processCommands("data4commands.txt");
 
