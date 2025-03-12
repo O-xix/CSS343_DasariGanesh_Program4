@@ -38,13 +38,15 @@ public:
         //May destroy it if it ends up being dynamically allocated
     void displayInventory();
         //Print all movies in sorted order, assuming that they are already sorted in sortedMovies
+    Customer* getCustomer(int id);
+        //Return customer object from customers HashMap
 private:
     HashMap<int, Customer> customers; //Enables fast lookup of customers by ID
     HashMap<string, Movie*> inventory; //Enables fast lookup of movies by title
     vector<Movie> sortedMovies; //Stores movies in required sorted order
     vector<string> commands_from_file; //Stores command inputs to translate into Action objects
     vector<Transaction> transactions; //Stores actions for processing individuals
-}
+};
 
 
 

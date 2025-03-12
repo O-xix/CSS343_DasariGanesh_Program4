@@ -6,10 +6,10 @@
 #include "movie.h"
 using namespace std;
 
-void Borrow::process() {
+void Borrow::process(Store* store) {
     movie.borrow();
 }
 
-void Borrow::print() {
-    cout << "B " << movie.getTitle() << " " << movie.getYear() << endl;
+void Borrow::print(Store* store) {
+    cout << "Borrowed " << store..getTitle() << " by " << movie.getDirector() << endl;
 }

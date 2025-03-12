@@ -5,13 +5,13 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-
+#include "store.h"
 
 class Transaction {
 public:
     Transaction(); //Default Action constructor
-    virtual void process(); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
-    virtual void print();
+    virtual void process(Store* store) = 0; //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
+    virtual void print(Store* store) = 0;
     char getTransactionType(); //Returns the transaction type of the transaction object.
     void setTransactionType(char type); //Sets the transaction type of the transaction object.
 private:

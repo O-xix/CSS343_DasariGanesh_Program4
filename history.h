@@ -6,15 +6,18 @@
 #define HISTORY_H
 
 #include "transaction.h"
+#include "store.h"
 
 class History : public Transaction {
 public:
     History(int customer_id) : transaction_type('H'), customer_id(customer_id) {}; //Default Action constructor
-    void process(); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
-    void print();
+    void process(Store* store); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
+    void print(Store* store);
 private:
     char transaction_type; //Stores the character representing the transaction type in the input file, which is the only field the transactions have in common; all other fields exist in sub-/child classes.
     int customer_id;
+
+    Store* store;
 };
 
 

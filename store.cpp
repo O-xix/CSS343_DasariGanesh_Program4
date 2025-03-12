@@ -53,14 +53,22 @@ void Store::processCommands(const string& filename) {
     file.close();
 }
 
-void Store::addMovie(Movie* movie) {
+// Following are methods used to manipulate the Store object
 
+void Store::addMovie(Movie* movie) {
+    inventory.insert(movie->getTitle(), movie);
 }
 
 void Store::removeMovie(const string& title) {
-
+    inventory.remove(title);
 }
 
 void Store::displayInventory() {
+    for (int i = 0; i < sortedMovies.size(); i++) {
+        sortedMovies[i].display();
+    }
+}
 
+Customer Store::getCustomer(int id) {
+    return customers.get(id);
 }
