@@ -16,8 +16,6 @@ public:
 private:
     char transaction_type; //Stores the character representing the transaction type in the input file, which is the only field the transactions have in common; all other fields exist in sub-/child classes.
     int customer_id;
-
-    Store* store;
 };
 
 

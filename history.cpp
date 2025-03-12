@@ -18,5 +18,5 @@ void History::print(Store* store) {
         cout << "Customer not found" << endl;
         return;
     }
-    cout << "History for " << customer-> << endl;
+    cout << "History for " << customer->getName() << endl;
 }

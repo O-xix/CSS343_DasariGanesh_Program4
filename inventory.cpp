@@ -11,13 +11,8 @@ Inventory::Inventory() {
 }
 
 void Inventory::process(Store* store) {
-    // note: this is a placeholder method, because the inventory is not actually processed, but rather printed
-    cout << ">> Inventory requested" << endl;
-}
-
-void Inventory::print(Store* store) {
     // Print out the inventory, as in into the output:
-    cout << ">> Inventory (I):" << endl;
+    cout << ">> Store Inventory (I) has been requested:" << endl;
     cout << "----------------------------------------------------------------------------------------------" << endl;
     store->displayInventory();
 }
