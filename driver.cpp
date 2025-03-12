@@ -30,7 +30,7 @@ int main() {
     Store store;
 
     store.initInventory("data4movies.txt");//lol venom
-    store.initCustomers("data4customers.txt");
+    store.initCustomers("data4customers.txt");//hi
     store.processCommands("data4commands.txt");
 
 
