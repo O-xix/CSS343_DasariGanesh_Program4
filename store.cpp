@@ -219,10 +219,10 @@ void Store::processCommands(const string& filename) {
     }
 
     // Clean up dynamically allocated transactions
-    // for (Transaction* transaction : transactions) {
-    //     delete transaction;
-    // }
-    // transactions.clear();
+    for (Transaction* transaction : transactions) {
+        delete transaction;
+    }
+    transactions.clear();
 }
 
 // Following are methods used to manipulate the Store object
