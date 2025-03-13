@@ -39,6 +39,7 @@ public:
     bool containsKey(K key);
     //To check if a key is already within the Map
     //Again, would follow the same value as the get() method to find the key, returns true or false if the key was found.
+    int hash(K key);
 private:
     Node<K, V>** table; //Pointer to an array of LinkedlList Nodes with LinkedLists attached to those.
     int capacity; //Fixed size for hash table
@@ -133,6 +134,21 @@ bool HashMap<K, V>::containsKey(K key) {
         current = current->next;
     }
     return false;
+}
+
+template <typename K, typename V>
+int HashMap<K, V>::hash(K key) {
+    if (typeid(K) == typeid(int)) {
+        return key;
+    }
+    if (typeid(K) == typeid(string)) {
+        int hash = 0;
+        for (char c : key) {
+            hash += c;
+        }
+        return hash;
+    }
+    return 0;
 }
 
 #endif //HASHMAP_H
