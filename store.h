@@ -43,11 +43,11 @@ public:
     Movie* getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released);
         //Return movie object from inventory
 private:
-    HashMap<int, Customer> customers; //Enables fast lookup of customers by ID
+    HashMap<int, Customer*> customers; //Enables fast lookup of customers by ID
     HashMap<string, Movie*> inventory; //Enables fast lookup of movies by title
     vector<Movie> sortedMovies; //Stores movies in required sorted order
     vector<string> commands_from_file; //Stores command inputs to translate into Action objects
-    vector<Transaction> transactions; //Stores actions for processing individuals
+    vector<Transaction*> transactions; //Stores actions for processing individuals
 };
 
 

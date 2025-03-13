@@ -7,7 +7,7 @@
 
 #include "transaction.h"
 
-class Return {
+class Return : public Transaction {
 public:
     // Easy way: just create three constructors, one for each type of movie
     // Classics:

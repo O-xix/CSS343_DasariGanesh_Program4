@@ -11,11 +11,10 @@ using namespace std;
 
 class Classics : public Movie {
 public:
-  Classics(int stock, string director, string title, int yearReleased, int release_month, string major_actor_firstname, string major_actor_lastname) : Movie(stock, director, title, yearReleased), release_month(release_month), major_actor_firstname(major_actor_firstname), major_actor_lastname(major_actor_lastname) {};
+  Classics(int stock, string director, string title, string major_actor_name, int releease_month, int yearReleased) : Movie(stock, director, title, yearReleased), release_month(release_month), major_actor_name(major_actor_name) {};
 private:
   int release_month;
-  string major_actor_firstname;
-  string major_actor_lastname;
+  string major_actor_name;
 };
 
 
