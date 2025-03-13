@@ -5,11 +5,9 @@
 #include "store.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
-Store::Store() {
-    return;
-}
 
 void Store::initInventory(const string& filename) {
     ifstream file;
@@ -18,9 +16,54 @@ void Store::initInventory(const string& filename) {
         cerr << "File not found" << endl;
         return;
     }
+
+    // Movie fields:
+    char genre;
+    int stock;
+    string director;
+    string title;
+    int month_released;
+    int year_released;
+    string actor;
+
+    int current;
+
     string line;
     for (getline(file, line)) {
-        // Add to inventory
+        genre = line[0];
+        if (genre == 'C') {
+            // Classic
+            stringstream ss(line);
+            string temp;
+            getline(ss, temp, ','); // genre
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, temp, ','); stock = stoi(temp);
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, director, ',');
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, title, ',');
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, actor, ' '); // actor until space
+            getline(ss, temp, ' '); month_released = stoi(temp);
+            getline(ss, temp); year_released = stoi(temp);
+        }
+        else if (genre == 'F' || genre == 'D') {
+            // Comedy || Drama
+            stringstream ss(line);
+            string temp;
+            getline(ss, temp, ','); // genre
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, temp, ','); stock = stoi(temp);
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, director, ',');
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, title, ',');
+            ss.ignore(1); // Ignore the space after the comma
+            getline(ss, temp); year_released = stoi(temp);
+        }
+        else {
+            cerr << "ERROR: " << genre << " Invalid Genre. Try Again." << endl;
+        }
     }
     file.close();
 }
@@ -33,8 +76,16 @@ void Store::initCustomers(const string& filename) {
         return;
     }
     string line;
-    for (getline(file, line)) {
-        // Add to customers
+    while (getline(file, line)) {
+        stringstream ss(line);
+        int customer_id;
+        string first_name, last_name;
+
+        ss >> customer_id >> first_name >> last_name;
+
+        // Assuming Customer is a class with a constructor that takes id, first name, and last name
+        Customer customer(customer_id, first_name, last_name);
+        customers.insert(customer_id, customer); // Assuming customers is a map or similar container
     }
     file.close();
 }
