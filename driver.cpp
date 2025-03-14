@@ -6,7 +6,7 @@
 #include <fstream>
 using namespace std;
 
-//#include "store.h"
+#include "store.h"
 
 
 int main() {

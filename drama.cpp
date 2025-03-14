@@ -5,40 +5,40 @@
 #include "drama.h"
 
 void Drama::borrow() {
-    decrementStock;
+    decrementStock();
 }
 
 void Drama::returnMovie() {
-    incrementStock;
+    incrementStock();
 }
 
 void Drama::display() {
-    cout << "Drama: " << title << ", " << director << ", " << year_released << endl;
+    cout << "Drama: " << getTitle() << ", " << getDirector() << ", " << getYearReleased() << endl;
 }
 
 bool Drama::operator==(const Movie& rhs) {
-    return (director == rhs.getDirector()) && (title == rhs.getTitle()) && (year_released == rhs.getYearReleased()) && (stock == rhs.getStock());
+    return (getDirector() == rhs.getDirector()) && (getTitle() == rhs.getTitle()) && (getYearReleased() == rhs.getYearReleased()) && (getStock() == rhs.getStock());
 }
 
 bool Drama::operator!=(const Movie& rhs) {
-    return director != rhs.getDirector() || title != rhs.getTitle();
+    return getDirector() != rhs.getDirector() || getTitle() != rhs.getTitle();
 }
 
 bool Drama::operator<(const Movie& rhs) {
-    if (director < rhs.getDirector()) {
+    if (getDirector() < rhs.getDirector()) {
         return true;
-    } else if (director == rhs.getDirector()) {
-        return title < rhs.getTitle();
+    } else if (getDirector() == rhs.getDirector()) {
+        return getTitle() < rhs.getTitle();
     } else {
         return false;
     }
 }
 
 bool Drama::operator>(const Movie& rhs) {
-    if (director > rhs.getDirector()) {
+    if (getDirector() > rhs.getDirector()) {
         return true;
-    } else if (director == rhs.getDirector()) {
-        return title > rhs.getTitle();
+    } else if (getDirector() == rhs.getDirector()) {
+        return getTitle() > rhs.getTitle();
     } else {
         return false;
     }

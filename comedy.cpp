@@ -8,25 +8,19 @@
 using namespace std;
 
 void Comedy::display() {
-    cout << "Comedy: " << title << ", " << director << ", " << year_released << endl;
+    cout << "Comedy: " << getTitle() << ", " << getDirector() << ", " << getYearReleased() << endl;
 }
 
 void Comedy::borrow() {
-    if (stock > 0) {
-        stock--;
-        cout << "You have borrowed: " << title << endl;
-    } else {
-        cout << "Sorry, " << title << " is currently out of stock." << endl;
-    }
+    decrementStock();
 }
 
 void Comedy::returnMovie() {
-    stock++;
-    cout << "You have returned: " << title << endl;
+    incrementStock();
 }
 
 bool Comedy::operator==(const Movie& rhs) {
-    return (director == rhs.getDirector()) && (title == rhs.getTitle()) && (year_released == rhs.getYearReleased()) && (stock == rhs.getStock());
+    return (getDirector() == rhs.getDirector()) && (getTitle() == rhs.getTitle()) && (getYearReleased() == rhs.getYearReleased()) && (getStock() == rhs.getStock());
 }
 
 bool Comedy::operator!=(const Movie& rhs) {
@@ -34,19 +28,19 @@ bool Comedy::operator!=(const Movie& rhs) {
 }
 
 bool Comedy::operator<(const Movie& rhs) {
-    if (director < rhs.getDirector()) {
+    if (getDirector() < rhs.getDirector()) {
         return true;
-    } else if (director == rhs.getDirector()) {
-        return title < rhs.getTitle();
+    } else if (getDirector() == rhs.getDirector()) {
+        return getTitle() < rhs.getTitle();
     }
     return false;
 }
 
 bool Comedy::operator>(const Movie& rhs) {
-    if (director > rhs.getDirector()) {
+    if (getDirector() > rhs.getDirector()) {
         return true;
-    } else if (director == rhs.getDirector()) {
-        return title > rhs.getTitle();
+    } else if (getDirector() == rhs.getDirector()) {
+        return getTitle() > rhs.getTitle();
     }
     return false;
 }
