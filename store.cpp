@@ -273,7 +273,7 @@ void Store::processCommands(const string& filename) {
 }
 
 // Following are methods used to manipulate the Store object
-/*
+
 
 void Store::addMovie(Movie* movie) {
     inventory.insert(movie->getTitle(), movie);
@@ -294,13 +294,12 @@ Customer* Store::getCustomer(int id) {
 }
 
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
+    if (genre == 'C') {
+        return inventory_for_classics.get(actor);
+    }
     if (title != "###") {
         return inventory.get(title);
     }
-    if (genre == 'C') {
-        return inventory.findValue(isCorrectClassicMovie());
-    }
     // Default return?
+    return nullptr;
 }
-
-*/

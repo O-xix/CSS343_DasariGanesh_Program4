@@ -34,6 +34,6 @@ private:
     Movie* movie;
 };
 
-
+#include "return.cpp"
 
 #endif //RETURN_H

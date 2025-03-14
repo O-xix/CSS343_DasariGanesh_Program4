@@ -15,3 +15,7 @@ char Transaction::getTransactionType() {
 void Transaction::setTransactionType(char type) {
     transaction_type = type;
 }
+
+void Transaction::print() {
+    cout << "Transaction Type: " << transaction_type << endl;
+}

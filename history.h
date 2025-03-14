@@ -19,6 +19,6 @@ private:
     int customer_id;
 };
 
-
+#include "history.cpp"
 
 #endif //HISTORY_H

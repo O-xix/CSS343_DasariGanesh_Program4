@@ -38,6 +38,6 @@ private:
     Movie* movie;
 };
 
-
+#include "borrow.cpp"
 
 #endif //BORROW_H

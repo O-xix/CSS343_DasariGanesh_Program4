@@ -17,3 +17,7 @@ void Inventory::process(Store* store) {
     cout << "----------------------------------------------------------------------------------------------" << endl;
     store->displayInventory();
 }
+
+void Inventory::print() {
+    cout << ">> Store Inventory (I) has been requested." << endl;
+}

@@ -3,8 +3,11 @@
 //
 
 #include "history.h"
+#include "customer.h"
+#include "store.h"
 
-
+#include <iostream>
+using namespace std;
 
 void History::process(Store* store) {
     Customer* customer = store->getCustomer(customer_id);
@@ -20,4 +23,8 @@ void History::process(Store* store) {
 
     customer->displayHistory();
     cout << endl;
+}
+
+void History::print() {
+  cout << "History for " << customer_id << "requested." << endl;
 }
