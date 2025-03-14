@@ -19,8 +19,6 @@ public:
     bool operator>(const Movie& rhs) override;
     bool operator<=(const Movie& rhs) override;
     bool operator>=(const Movie& rhs) override;
-    
-private:
 
 };
 

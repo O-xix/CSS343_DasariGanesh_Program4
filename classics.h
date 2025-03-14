@@ -5,18 +5,28 @@
 #ifndef CLASSICS_H
 #define CLASSICS_H
 #include "movie.h"
-
 #include <string>
 using namespace std;
 
 class Classics : public Movie {
 public:
-  Classics(int stock, string director, string title, string major_actor_name, int releease_month, int yearReleased) : Movie(stock, director, title, yearReleased), release_month(release_month), major_actor_name(major_actor_name) {};
+    Classics(int stock, string director, string title, string major_actor_name, int release_month, int yearReleased)
+        : Movie(stock, director, title, yearReleased), release_month(release_month), major_actor_name(major_actor_name) {}
+
+    void display() override;
+    void borrow() override;
+    void returnMovie() override;
+    bool operator==(const Movie& rhs) override;
+    bool operator!=(const Movie& rhs) override;
+    bool operator<(const Movie& rhs) override;
+    bool operator>(const Movie& rhs) override;
+    bool operator<=(const Movie& rhs) override;
+    bool operator>=(const Movie& rhs) override;
+
 private:
-  int release_month;
-  string major_actor_name;
+    int release_month;
+    string major_actor_name;
 };
 
+#endif // CLASSICS_H
 
-
-#endif //CLASSICS_H

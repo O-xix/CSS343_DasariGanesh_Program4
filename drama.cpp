@@ -5,11 +5,11 @@
 #include "drama.h"
 
 void Drama::borrow() {
-    stock--;
+    decrementStock;
 }
 
 void Drama::returnMovie() {
-    stock++;
+    incrementStock;
 }
 
 void Drama::display() {

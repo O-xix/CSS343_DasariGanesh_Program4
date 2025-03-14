@@ -6,26 +6,26 @@
 #include <string>
 using namespace std;
 
-Movie::Movie(int stock, string director, string title, int year_released) {
+Movie::Movie(int stock, const string director, const string& title, int year_released) {
     this->stock = stock;
     this->director = director;
     this->title = title;
     this->year_released = year_released;
 }
 
-string Movie::getDirector() {
+string Movie::getDirector() const{
     return director;
 }
 
-string Movie::getTitle() {
+string Movie::getTitle() const{
     return title;
 }
 
-int Movie::getYearReleased() {
+int Movie::getYearReleased() const{
     return year_released;
 }
 
-int Movie::getStock() {
+int Movie::getStock() const{
     return stock;
 }
 
@@ -46,7 +46,11 @@ void Movie::setStock(int stock) {
 }
 
 void Movie::decrementStock() {
-    stock--;
+    if(stock > 0){
+        stock--;
+    }else{
+        cout << "ERROR: Movie '" << getTitle() << "' is out of stock.\n";
+    }
 }
 
 void Movie::incrementStock() {

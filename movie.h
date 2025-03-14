@@ -12,28 +12,28 @@ using namespace std;
 
 class Movie {
 public:
-    Movie(int stock, string director, string title, int yearReleased) : stock(stock), director(director), title(title), year_released(year_released) {}; //Default constructor, assigns values to respective fields
+    Movie(int stock, const string director, const string& title, int yearReleased) : stock(stock), director(director), title(title), year_released(year_released) {}; //Default constructor, assigns values to respective fields
     virtual void display(); //To display movies in their respective formats, depending on the genre
     virtual void borrow(); //To be used by the Borrow transaction
     //Would decrement stock and handle any stock decrement beyond a stock of 0 through conditionals.
     virtual void returnMovie(); //To be used by the Return transaction
     //Would decrement stock and handle any stock decrement beyond a stock of 0 through conditionals.
-    bool operator==(const Movie& rhs); //Equivalancy operator overload
-    bool operator!=(const Movie& rhs); //Non-equivalancy operator overload
-    bool operator<(const Movie& rhs); //Less than operator overload
-    bool operator>(const Movie& rhs); //Greater than operator overload
-    bool operator<=(const Movie& rhs); //Less than or equal to operator overload
-    bool operator>=(const Movie& rhs); //Greater than or equal to operator overload
+    virtual bool operator==(const Movie& rhs); //Equivalancy operator overload
+    virtual bool operator!=(const Movie& rhs); //Non-equivalancy operator overload
+    virtual bool operator<(const Movie& rhs); //Less than operator overload
+    virtual bool operator>(const Movie& rhs); //Greater than operator overload
+    virtual bool operator<=(const Movie& rhs); //Less than or equal to operator overload
+    virtual bool operator>=(const Movie& rhs); //Greater than or equal to operator overload
     //All comparison operators would be used to sort, therefore would follow sorting criteria laid out for each genre
 
     //Getters and setters for all fields
-    int getStock();
+    int getStock() const;
     void setStock(int stock);
-    string getDirector();
+    string getDirector() const;
     void setDirector(string director);
-    string getTitle();
+    string getTitle() const;
     void setTitle(string title);
-    int getYearReleased();
+    int getYearReleased() const;
     void setYearReleased(int year_released);
 
     void decrementStock(); //Decrements stock by 1
