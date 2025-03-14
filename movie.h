@@ -12,7 +12,7 @@ using namespace std;
 
 class Movie {
 public:
-    Movie(int stock, const string director, const string& title, int yearReleased) : stock(stock), director(director), title(title), year_released(year_released) {}; //Default constructor, assigns values to respective fields
+    Movie(int stock, const string director, const string& title, int yearReleased); //Default constructor, assigns values to respective fields
     virtual void display(); //To display movies in their respective formats, depending on the genre
     virtual void borrow(); //To be used by the Borrow transaction
     //Would decrement stock and handle any stock decrement beyond a stock of 0 through conditionals.
@@ -35,6 +35,8 @@ public:
     void setTitle(string title);
     int getYearReleased() const;
     void setYearReleased(int year_released);
+    char getGenre() const;
+    void setGenre(char genre);
 
     void decrementStock(); //Decrements stock by 1
     void incrementStock(); //Increments stock by 1
@@ -43,6 +45,7 @@ private:
     string director; //Stores name of director
     string title; //Stores title of movie
     int year_released; //Stores the year of release
+    char genre; //Stores the genre of the movie
 };
 
 #include "movie.cpp"

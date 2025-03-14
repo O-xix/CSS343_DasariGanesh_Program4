@@ -9,7 +9,9 @@
 
 class Comedy : public Movie {
 public:
-    Comedy(int stock, string director, string title, int yearReleased): Movie(stock, director, title, yearReleased) {};
+    Comedy(int stock, string director, string title, int yearReleased): Movie(stock, director, title, yearReleased) {
+        setGenre('F');
+    };
     void display() override;
     void borrow() override;
     void returnMovie() override;

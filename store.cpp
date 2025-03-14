@@ -20,6 +20,12 @@
 #include <sstream>
 using namespace std;
 
+Store::Store() {
+    // Initialize the inventory and customers
+    inventory = HashMap<string, Movie*>(31);
+    inventory_for_classics = HashMap<string, Classics*>(31);
+    customers = HashMap<int, Customer*>(13);
+}
 
 void Store::initInventory(const string& filename) {
     ifstream file;
@@ -59,8 +65,7 @@ void Store::initInventory(const string& filename) {
             getline(ss, actor_last_name, ' '); // actor until space
             getline(ss, temp, ' '); month_released = stoi(temp);
             getline(ss, temp); year_released = stoi(temp);
-            movie = new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released);
-            inventory.insert(title, movie);
+            inventory_for_classics.insert((actor_first_name + actor_last_name), new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released));
         }
         else if (genre == 'F') {
             // Comedy
@@ -91,7 +96,6 @@ void Store::initInventory(const string& filename) {
             getline(ss, title, ',');
             ss.ignore(1); // Ignore the space after the comma
             getline(ss, temp); year_released = stoi(temp);
-            inventory.insert(title, new Drama(stock, director, title, year_released)); 
             movie = new Drama(stock, director, title, year_released);
             inventory.insert(title, movie);
         }
@@ -291,6 +295,9 @@ Customer* Store::getCustomer(int id) {
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
     if (title != "###") {
         return inventory.get(title);
+    }
+    if (genre == 'C') {
+        return inventory.findValue(isCorrectClassicMovie());
     }
     // Default return?
 }

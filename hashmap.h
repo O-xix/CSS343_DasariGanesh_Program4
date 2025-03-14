@@ -40,6 +40,8 @@ public:
     //To check if a key is already within the Map
     //Again, would follow the same value as the get() method to find the key, returns true or false if the key was found.
     int hash(K key);
+
+    V* findValue(bool (*condition)(const V&));
 private:
     Node<K, V>** table; //Pointer to an array of LinkedlList Nodes with LinkedLists attached to those.
     int capacity; //Fixed size for hash table
@@ -149,6 +151,20 @@ int HashMap<K, V>::hash(K key) {
         return hash;
     }
     return 0;
+}
+
+template <typename K, typename V>
+V* HashMap<K, V>::findValue(bool (*condition)(const V&)) {
+    for (int i = 0; i < capacity; i++) {
+        Node<K, V>* current = table[i];
+        while (current != nullptr) {
+            if (condition(current->value)) {
+                return &(current->value);
+            }
+            current = current->next;
+        }
+    }
+    return nullptr; // Return nullptr if no value matches the condition
 }
 
 #endif //HASHMAP_H
