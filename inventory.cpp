@@ -3,11 +3,12 @@
 //
 
 #include "inventory.h"
+#include "store.h"
 #include <iostream>
 using namespace std;
 
 Inventory::Inventory() {
-    transaction_type = 'I';
+    setTransactionType('I');
 }
 
 void Inventory::process(Store* store) {

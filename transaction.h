@@ -21,6 +21,6 @@ private:
 };
 
 
-
+#include "transaction.cpp"
 
 #endif //TRANSACTION_H

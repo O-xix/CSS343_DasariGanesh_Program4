@@ -133,8 +133,6 @@ void Store::initCustomers(const string& filename) {
     cout << "Customers all received" << endl;
 }
 
-/*
-
 void Store::processCommands(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -235,15 +233,15 @@ void Store::processCommands(const string& filename) {
                 ss.ignore(1); // Ignore the space after the year
                 getline(ss, actor);
                 if (command == 'B') {
-                    if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                    if (inventory_for_classics.get(actor) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, month_released, year_released, actor);
                 } 
                 else if (command == 'R') {
-                    if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                    if (inventory.get(actor) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Return(customer_id, media_type, genre, month_released, year_released, actor);
@@ -275,6 +273,7 @@ void Store::processCommands(const string& filename) {
 }
 
 // Following are methods used to manipulate the Store object
+/*
 
 void Store::addMovie(Movie* movie) {
     inventory.insert(movie->getTitle(), movie);
