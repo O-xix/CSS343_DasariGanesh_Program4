@@ -106,7 +106,6 @@ void Store::initInventory(const string& filename) {
     cout << "Inventory created and file closed" << endl;
 }
 
-/*
 void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -130,7 +129,11 @@ void Store::initCustomers(const string& filename) {
         customer = nullptr;
     }
     file.close();
+
+    cout << "Customers all received" << endl;
 }
+
+/*
 
 void Store::processCommands(const string& filename) {
     ifstream file;
