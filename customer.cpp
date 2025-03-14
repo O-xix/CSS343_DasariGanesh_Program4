@@ -4,6 +4,7 @@
 
 #include "customer.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void Customer::addTransaction(const Transaction& transaction) {

@@ -3,6 +3,8 @@
 //
 
 #include "return.h"
+#include "store.h"
+#include "customer.h"
 #include <iostream>
 using namespace std;
 

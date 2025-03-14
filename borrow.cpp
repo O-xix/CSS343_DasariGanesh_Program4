@@ -4,6 +4,8 @@
 
 #include "borrow.h"
 #include "movie.h"
+#include "store.h"
+#include "customer.h"
 using namespace std;
 
 void Borrow::process(Store* store) {
