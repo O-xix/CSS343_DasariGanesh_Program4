@@ -25,7 +25,7 @@ private:
     vector<Transaction> transactionHistory; // Stores transaction history of the customer in the order that is in the input transaction file
 };
 
-
+#include "customer.cpp"
 
 
 #endif //CUSTOMER_H
