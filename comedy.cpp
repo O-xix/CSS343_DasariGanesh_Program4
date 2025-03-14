@@ -19,15 +19,15 @@ void Comedy::returnMovie() {
     incrementStock();
 }
 
-bool Comedy::operator==(const Movie& rhs) {
+bool Comedy::operator==(const Movie& rhs) const {
     return (getDirector() == rhs.getDirector()) && (getTitle() == rhs.getTitle()) && (getYearReleased() == rhs.getYearReleased()) && (getStock() == rhs.getStock());
 }
 
-bool Comedy::operator!=(const Movie& rhs) {
+bool Comedy::operator!=(const Movie& rhs) const {
     return !(*this == rhs);
 }
 
-bool Comedy::operator<(const Movie& rhs) {
+bool Comedy::operator<(const Movie& rhs) const {
     if (getDirector() < rhs.getDirector()) {
         return true;
     } else if (getDirector() == rhs.getDirector()) {
@@ -36,7 +36,7 @@ bool Comedy::operator<(const Movie& rhs) {
     return false;
 }
 
-bool Comedy::operator>(const Movie& rhs) {
+bool Comedy::operator>(const Movie& rhs) const {
     if (getDirector() > rhs.getDirector()) {
         return true;
     } else if (getDirector() == rhs.getDirector()) {
@@ -45,11 +45,11 @@ bool Comedy::operator>(const Movie& rhs) {
     return false;
 }
 
-bool Comedy::operator<=(const Movie& rhs) {
+bool Comedy::operator<=(const Movie& rhs) const {
     return !(this->operator>(rhs));
 }
 
-bool Comedy::operator>=(const Movie& rhs) {
+bool Comedy::operator>=(const Movie& rhs) const {
     return !(this->operator<(rhs));
 }
 

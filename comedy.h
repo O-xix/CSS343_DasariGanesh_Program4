@@ -15,15 +15,15 @@ public:
     void display() override;
     void borrow() override;
     void returnMovie() override;
-    bool operator==(const Movie& rhs) override;
-    bool operator!=(const Movie& rhs) override;
-    bool operator<(const Movie& rhs) override;
-    bool operator>(const Movie& rhs) override;
-    bool operator<=(const Movie& rhs) override;
-    bool operator>=(const Movie& rhs) override;
+    bool operator==(const Movie& rhs) const override;
+    bool operator!=(const Movie& rhs) const override;
+    bool operator<(const Movie& rhs) const override;
+    bool operator>(const Movie& rhs) const override;
+    bool operator<=(const Movie& rhs) const override;
+    bool operator>=(const Movie& rhs) const override;
 
 };
 
-
+#include "comedy.cpp"
 
 #endif //COMEDY_H

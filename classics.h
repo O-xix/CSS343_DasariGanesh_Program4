@@ -18,12 +18,12 @@ public:
     void display() override;
     void borrow() override;
     void returnMovie() override;
-    bool operator==(const Movie& rhs) override;
-    bool operator!=(const Movie& rhs) override;
-    bool operator<(const Movie& rhs) override;
-    bool operator>(const Movie& rhs) override;
-    bool operator<=(const Movie& rhs) override;
-    bool operator>=(const Movie& rhs) override;
+    bool operator==(const Movie& rhs) const override;
+    bool operator!=(const Movie& rhs) const override;
+    bool operator<(const Movie& rhs) const override;
+    bool operator>(const Movie& rhs) const override;
+    bool operator<=(const Movie& rhs) const override;
+    bool operator>=(const Movie& rhs) const override;
 
     int getReleaseMonth() const;
     void setReleaseMonth(int release_month);
@@ -33,6 +33,8 @@ private:
     int release_month;
     string major_actor_name;
 };
+
+#include "classics.cpp"
 
 #endif // CLASSICS_H
 

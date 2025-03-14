@@ -21,18 +21,18 @@ void Classics::returnMovie() {
     incrementStock();
 }
 
-bool Classics::operator==(const Movie& rhs) {
+bool Classics::operator==(const Movie& rhs) const {
     return (getDirector() == rhs.getDirector()) &&
            (getTitle() == rhs.getTitle()) &&
            (getYearReleased() == rhs.getYearReleased()) &&
            (major_actor_name == dynamic_cast<const Classics&>(rhs).major_actor_name);
 }
 
-bool Classics::operator!=(const Movie& rhs) {
+bool Classics::operator!=(const Movie& rhs) const {
     return !(*this == rhs);
 }
 
-bool Classics::operator<(const Movie& rhs) {
+bool Classics::operator<(const Movie& rhs) const {
     if (getDirector() < rhs.getDirector()) {
         return true;
     } else if (getDirector() == rhs.getDirector()) {
@@ -45,15 +45,15 @@ bool Classics::operator<(const Movie& rhs) {
     return false;
 }
 
-bool Classics::operator>(const Movie& rhs) {
+bool Classics::operator>(const Movie& rhs) const {
     return !(*this < rhs || *this == rhs);
 }
 
-bool Classics::operator<=(const Movie& rhs) {
+bool Classics::operator<=(const Movie& rhs) const {
     return !(*this > rhs);
 }
 
-bool Classics::operator>=(const Movie& rhs) {
+bool Classics::operator>=(const Movie& rhs) const {
     return !(*this < rhs);
 }
 

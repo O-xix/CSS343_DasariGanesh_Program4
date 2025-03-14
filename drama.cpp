@@ -16,15 +16,15 @@ void Drama::display() {
     cout << "Drama: " << getTitle() << ", " << getDirector() << ", " << getYearReleased() << endl;
 }
 
-bool Drama::operator==(const Movie& rhs) {
+bool Drama::operator==(const Movie& rhs) const {
     return (getDirector() == rhs.getDirector()) && (getTitle() == rhs.getTitle()) && (getYearReleased() == rhs.getYearReleased()) && (getStock() == rhs.getStock());
 }
 
-bool Drama::operator!=(const Movie& rhs) {
+bool Drama::operator!=(const Movie& rhs) const {
     return getDirector() != rhs.getDirector() || getTitle() != rhs.getTitle();
 }
 
-bool Drama::operator<(const Movie& rhs) {
+bool Drama::operator<(const Movie& rhs) const {
     if (getDirector() < rhs.getDirector()) {
         return true;
     } else if (getDirector() == rhs.getDirector()) {
@@ -34,7 +34,7 @@ bool Drama::operator<(const Movie& rhs) {
     }
 }
 
-bool Drama::operator>(const Movie& rhs) {
+bool Drama::operator>(const Movie& rhs) const {
     if (getDirector() > rhs.getDirector()) {
         return true;
     } else if (getDirector() == rhs.getDirector()) {
@@ -44,10 +44,10 @@ bool Drama::operator>(const Movie& rhs) {
     }
 }
 
-bool Drama::operator<=(const Movie& rhs) {
+bool Drama::operator<=(const Movie& rhs) const {
     return !(*this > rhs);  
 }
 
-bool Drama::operator>=(const Movie& rhs) {
+bool Drama::operator>=(const Movie& rhs) const {
     return !(*this < rhs);
 }

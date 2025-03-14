@@ -21,10 +21,7 @@
 using namespace std;
 
 Store::Store() {
-    // Initialize the inventory and customers
-    inventory = HashMap<string, Movie*>(31);
-    inventory_for_classics = HashMap<string, Classics*>(31);
-    customers = HashMap<int, Customer*>(13);
+  cout << "Store was created" << endl;
 }
 
 void Store::initInventory(const string& filename) {
@@ -108,6 +105,7 @@ void Store::initInventory(const string& filename) {
     file.close();
 }
 
+/*
 void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -301,3 +299,5 @@ Movie* Store::getMovie(char media_type, char genre, string director, string acto
     }
     // Default return?
 }
+
+*/
