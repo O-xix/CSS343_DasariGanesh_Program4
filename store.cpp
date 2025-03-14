@@ -157,6 +157,10 @@ void Store::processCommands(const string& filename) {
             // Display customer history
             int customer_id;
             ss >> customer_id;
+            if (customers.get(customer_id) == nullptr) {
+                cerr << "ERROR: History Transaction Failed -- Customer " << customer_id << "does not exist" << endl;
+                continue;
+            }
             transaction = new History(customer_id);
         }
         else if (command == 'B' || command == 'R') {
@@ -174,9 +178,22 @@ void Store::processCommands(const string& filename) {
                 ss.ignore(1); // Ignore the space after the comma
                 ss >> year_released;
                 if (command == 'B') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Borrow(customer_id, media_type, genre, title, year_released);
-                } else {
+                } 
+                else if (command == 'R') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Return(customer_id, media_type, genre, title, year_released);
+                }
+                else {
+                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    continue;
                 }
             }
             else if (genre == 'D') {
@@ -186,9 +203,22 @@ void Store::processCommands(const string& filename) {
                 ss.ignore(1); // Ignore the space after the comma
                 getline(ss, title, ',');
                 if (command == 'B') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Borrow(customer_id, media_type, genre, director, title);
-                } else {
+                } 
+                else if (command == 'R') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Return(customer_id, media_type, genre, director, title);
+                }
+                else {
+                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    continue;
                 }
             }
             else if (genre == 'C') {
@@ -199,14 +229,27 @@ void Store::processCommands(const string& filename) {
                 ss.ignore(1); // Ignore the space after the year
                 getline(ss, actor);
                 if (command == 'B') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Borrow(customer_id, media_type, genre, month_released, year_released, actor);
-                } else {
+                } 
+                else if (command == 'R') {
+                    if (inventory.get(title) == nullptr) {
+                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        continue;
+                    }
                     transaction = new Return(customer_id, media_type, genre, month_released, year_released, actor);
+                }
+                else {
+                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    continue;
                 }
             }
         }
         else {
-            cerr << "Invalid transaction code: " << command << endl;
+            cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
             continue;
         }
         transactions.push_back(transaction);
