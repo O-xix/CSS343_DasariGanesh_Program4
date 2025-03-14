@@ -21,7 +21,7 @@
 using namespace std;
 
 Store::Store() {
-  cout << "Store was created" << endl;
+  cout << "FINISH: Store was created" << endl;
 }
 
 void Store::initInventory(const string& filename) {
@@ -103,7 +103,7 @@ void Store::initInventory(const string& filename) {
         movie = nullptr;
     }
     file.close();
-    cout << "Inventory created and file closed" << endl;
+    cout << "FINISH: Inventory created and file closed" << endl;
 }
 
 void Store::initCustomers(const string& filename) {
@@ -130,7 +130,7 @@ void Store::initCustomers(const string& filename) {
     }
     file.close();
 
-    cout << "Customers all received" << endl;
+    cout << "FINISH: Customers all received" << endl;
 }
 
 void Store::processCommands(const string& filename) {
@@ -178,6 +178,7 @@ void Store::processCommands(const string& filename) {
                 // Comedy
                 string title;
                 int year_released;
+                ss.ignore(1);
                 getline(ss, title, ',');
                 ss.ignore(1); // Ignore the space after the comma
                 ss >> year_released;
@@ -228,19 +229,20 @@ void Store::processCommands(const string& filename) {
             else if (genre == 'C') {
                 // Classic
                 int month_released, year_released;
-                string actor;
-                ss >> month_released >> year_released;
-                ss.ignore(1); // Ignore the space after the year
-                getline(ss, actor);
+                string actor, actor_first_name, actor_last_name;
+                ss >> month_released >> year_released >> actor_first_name >> actor_last_name;
+                //ss.ignore(1); // Ignore the space after the year
+                //getline(ss, actor);
+                actor = actor_first_name + " " + actor_last_name;
                 if (command == 'B') {
-                    if (inventory_for_classics.get(actor) == nullptr) {
+                    if (inventory_for_classics.get((actor_first_name + actor_last_name)) == nullptr) {
                         cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, month_released, year_released, actor);
                 } 
                 else if (command == 'R') {
-                    if (inventory.get(actor) == nullptr) {
+                    if (inventory_for_classics.get((actor_first_name + actor_last_name)) == nullptr) {
                         cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
@@ -264,6 +266,8 @@ void Store::processCommands(const string& filename) {
     for (Transaction* transaction : transactions) {
         transaction->process(this);
     }
+
+    cout << "FINISH: All transactions were processed and will now be removed." << endl;
 
     // Clean up dynamically allocated transactions
     for (Transaction* transaction : transactions) {

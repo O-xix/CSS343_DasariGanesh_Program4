@@ -22,5 +22,5 @@ void Transaction::print() {
 
 // Define the process method
 void Transaction::process(Store* store) {
-    cout << "Processing transaction" << endl;
+    cout << "Processing transaction in Transaction class: WRONG" << endl;
 }
