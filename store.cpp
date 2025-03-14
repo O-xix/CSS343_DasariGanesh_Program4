@@ -97,12 +97,13 @@ void Store::initInventory(const string& filename) {
             inventory.insert(title, movie);
         }
         else {
-            cerr << "ERROR: " << genre << " Invalid Genre. Try Again." << endl;
+            cout << "ERROR: " << genre << " Invalid Genre. Try Again." << endl;
             continue;
         }
         movie = nullptr;
     }
     file.close();
+    cout << "Inventory created and file closed" << endl;
 }
 
 /*
