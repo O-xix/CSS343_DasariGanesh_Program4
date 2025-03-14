@@ -45,9 +45,9 @@ bool Drama::operator>(const Movie& rhs) {
 }
 
 bool Drama::operator<=(const Movie& rhs) {
-    return !(this > rhs);  
+    return !(*this > rhs);  
 }
 
 bool Drama::operator>=(const Movie& rhs) {
-    return !(this < rhs);
+    return !(*this < rhs);
 }
