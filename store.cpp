@@ -28,7 +28,7 @@ void Store::initInventory(const string& filename) {
     ifstream file;
     file.open(filename);
     if (!file) {
-        cerr << "File not found" << endl;
+        cout << "File not found" << endl;
         return;
     }
 
@@ -110,7 +110,7 @@ void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
     if (!file) {
-        cerr << "File not found" << endl;
+        cout << "File not found" << endl;
         return;
     }
     string line;
@@ -137,7 +137,7 @@ void Store::processCommands(const string& filename) {
     ifstream file;
     file.open(filename);
     if (!file) {
-        cerr << "File not found" << endl;
+        cout << "File not found" << endl;
         return;
     }
 
@@ -145,7 +145,7 @@ void Store::processCommands(const string& filename) {
     string line;
     while (getline(file, line)) {
         if (line.empty()) {
-            cerr << "Empty line" << endl;
+            cout << "Empty line" << endl;
             continue;
         }
         stringstream ss(line);
@@ -162,7 +162,7 @@ void Store::processCommands(const string& filename) {
             int customer_id;
             ss >> customer_id;
             if (customers.get(customer_id) == nullptr) {
-                cerr << "ERROR: History Transaction Failed -- Customer " << customer_id << "does not exist" << endl;
+                cout << "ERROR: History Transaction Failed -- Customer " << customer_id << "does not exist" << endl;
                 continue;
             }
             transaction = new History(customer_id);
@@ -183,20 +183,20 @@ void Store::processCommands(const string& filename) {
                 ss >> year_released;
                 if (command == 'B') {
                     if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Funny Movie (" << title << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, title, year_released);
                 } 
                 else if (command == 'R') {
                     if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Funny Movie (" << title << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Return(customer_id, media_type, genre, title, year_released);
                 }
                 else {
-                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    cout << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
                     continue;
                 }
             }
@@ -208,20 +208,20 @@ void Store::processCommands(const string& filename) {
                 getline(ss, title, ',');
                 if (command == 'B') {
                     if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Drama Movie (" << title << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, director, title);
                 } 
                 else if (command == 'R') {
                     if (inventory.get(title) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie (" << title << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Drama Movie (" << title << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Return(customer_id, media_type, genre, director, title);
                 }
                 else {
-                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    cout << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
                     continue;
                 }
             }
@@ -234,26 +234,26 @@ void Store::processCommands(const string& filename) {
                 getline(ss, actor);
                 if (command == 'B') {
                     if (inventory_for_classics.get(actor) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, month_released, year_released, actor);
                 } 
                 else if (command == 'R') {
                     if (inventory.get(actor) == nullptr) {
-                        cerr << "ERROR: Borrow Transaction Failed -- Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
+                        cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Return(customer_id, media_type, genre, month_released, year_released, actor);
                 }
                 else {
-                    cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+                    cout << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
                     continue;
                 }
             }
         }
         else {
-            cerr << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
+            cout << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
             continue;
         }
         transactions.push_back(transaction);
