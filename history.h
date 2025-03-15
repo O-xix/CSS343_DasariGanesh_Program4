@@ -1,6 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- history.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Defines the `History` class, a derived class of `Transaction`, 
+// which processes a customer's transaction history. 
+// -------------------------------------------------------------------- 
 
 #ifndef HISTORY_H
 #define HISTORY_H

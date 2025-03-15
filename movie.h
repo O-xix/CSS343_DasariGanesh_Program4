@@ -7,6 +7,7 @@
 // It provides essential attributes and methods for managing movie details, stock, and  
 // transaction-related operations like borrowing and returning movies.  
 // -------------------------------------------------------------------- 
+
 #ifndef MOVIE_H
 #define MOVIE_H
 

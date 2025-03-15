@@ -8,6 +8,7 @@
 // This file provides methods for initializing movie and customer 
 // data, processing commands, and manipulating the store's inventory
 // -------------------------------------------------------------------- 
+
 #include "store.h"
 #include "movie.h"
 #include "comedy.h"

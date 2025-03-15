@@ -1,6 +1,12 @@
-//
-// Created by tdasari on 3/7/25.
-//
+//-------------------------- hashmap.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines and implements the `HashMap` class,
+// a key-value store implementation using separate chaining 
+// (open hashing) for collision resolution.
+// -------------------------------------------------------------------- 
 
 #ifndef HASHMAP_H
 #define HASHMAP_H
@@ -61,6 +67,14 @@ private:
 
 // Implementation (because template classes must be implemented in the same file) -----------------------------------------------------------------------------------
 
+// ---------- HashMap Constructor -----------
+// Description: Initializes a new hash map with a fixed capacity (number of buckets) 
+// and sets up the internal storage structure (an array of linked lists).
+// Preconditions: capacity must be a positive integer, as it represents the number of buckets in the hash map.
+// The caller must ensure the capacity is reasonable for the data size intended to 
+// be stored in the map (e.g., avoid too small a capacity to minimize collisions).
+// Postconditions: The HashMap instance is initialized with a table of size 
+// capacity where each index is set to nullptr, indicating an empty bucket.
 template <typename K, typename V>
 HashMap<K, V>::HashMap(int capacity) : capacity(capacity), size(0) {
     table = new Node<K, V>*[capacity];
@@ -69,6 +83,12 @@ HashMap<K, V>::HashMap(int capacity) : capacity(capacity), size(0) {
     }
 }
 
+// ---------- HashMap Destructor -----------
+// Description: Destroys the hash map by deallocating all dynamically 
+// allocated memory, including the linked lists at each table index and the table array itself.
+// Preconditions: The HashMap instance has been properly initialized 
+// and contains allocated memory for its table and any linked lists.
+// Postconditions: All memory allocated for the linked lists at each index in the hash table is freed.
 template <typename K, typename V>
 HashMap<K, V>::~HashMap() {
     for (int i = 0; i < capacity; i++) {
@@ -84,6 +104,14 @@ HashMap<K, V>::~HashMap() {
 
 // Define a hash function (example for integers)
 
+// ---------- insert -----------
+// Description: The `insert` method adds a key-value pair to the hash table.  
+//    If the key already exists, the value is updated.  
+//    In case of a hash collision, the method handles the collision using open hashing (separate chaining) by adding a new node to the linked list at the corresponding index.  
+// Preconditions:  
+//    - The key is of type K and the value is of type V.  
+// Postconditions:  
+//    - The key-value pair is added to the hash table, or if the key already exists, its value is updated.  
 template <typename K, typename V>
 void HashMap<K, V>::insert(K key, V value) {
     // @todo: Implement a better hash function
@@ -102,6 +130,15 @@ void HashMap<K, V>::insert(K key, V value) {
     size++;
 }
 
+// ---------- get -----------
+// Description:  
+//    The `get` method retrieves the value associated with the given key.  
+//    It computes the index using the hash function, and then traverses the linked list at that index to find the key.  
+//    If the key is found, its value is returned; otherwise, the method returns a default-constructed value of type V.  
+// Preconditions:  
+//    - The key is of type K.  
+// Postconditions:  
+//    - If the key is found, the associated value is returned. If not, a default value of type V is returned.  
 template <typename K, typename V>
 V HashMap<K, V>::get(K key) {
     int index = hash(key) % capacity;
@@ -115,6 +152,15 @@ V HashMap<K, V>::get(K key) {
     return V(); // Return default value of V
 }
 
+// ---------- remove -----------
+// Description:  
+//    The `remove` method removes the key-value pair with the given key from the hash table.  
+//    It computes the index using the hash function, then traverses the linked list at that index to find and delete the corresponding node.  
+//    The previous node's pointer is adjusted to maintain the linked list structure.  
+// Preconditions:  
+//    - The key is of type K.  
+// Postconditions:  
+//    - The key-value pair is removed from the hash table, and the size is decremented.  
 template <typename K, typename V>
 void HashMap<K, V>::remove(K key) {
     int index = hash(key) % capacity;
@@ -136,6 +182,14 @@ void HashMap<K, V>::remove(K key) {
     }
 }
 
+// ---------- containsKey -----------
+// Description:  
+//    The `containsKey` method checks if the given key exists in the hash table.  
+//    It computes the index using the hash function and traverses the linked list at that index to check for the key.  
+// Preconditions:  
+//    - The key is of type K.  
+// Postconditions:  
+//    - Returns true if the key exists in the hash table, false otherwise.  
 template <typename K, typename V>
 bool HashMap<K, V>::containsKey(K key) {
     int index = hash(key) % capacity;
@@ -149,6 +203,16 @@ bool HashMap<K, V>::containsKey(K key) {
     return false;
 }
 
+// ---------- findValue -----------
+// Description:  
+//    The `findValue` method searches for a value in the hash table that satisfies a condition specified by the provided function pointer.  
+//    It iterates through all linked lists in the hash table, invoking the condition function for each node's value.  
+//    If a value satisfying the condition is found, the method returns a pointer to that value.  
+// Preconditions:  
+//    - The `condition` function pointer is a valid function that takes a reference to a value of type V and returns a boolean.  
+// Postconditions:  
+//    - If a value that satisfies the condition is found, a pointer to that value is returned.  
+//    - If no matching value is found, nullptr is returned.  
 template <typename K, typename V>
 V* HashMap<K, V>::findValue(bool (*condition)(const V&)) {
     for (int i = 0; i < capacity; i++) {

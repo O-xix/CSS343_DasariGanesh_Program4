@@ -1,6 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- inventory.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Defines the `Inventory` class, a derived class of `Transaction`, which handles the display  
+// of the store's entire movie inventory.
+// -------------------------------------------------------------------- 
 
 #ifndef INVENTORY_H
 #define INVENTORY_H

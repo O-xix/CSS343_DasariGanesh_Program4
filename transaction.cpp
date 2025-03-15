@@ -6,6 +6,7 @@
 // Purpose: Implementation for the Transaction class methods: setting 
 // transaction type, processing, and printing transaction details.
 // -------------------------------------------------------------------- 
+
 #include "transaction.h"
 #include "store.h"
 

@@ -7,6 +7,7 @@
 // the store's movie inventory, customer management, and processing of various transactions. It allows the store
 // to manage its inventory, add and remove movies, interact with customers, and process transaction commands from a file.
 // -------------------------------------------------------------------- 
+
 #ifndef STORE_H
 #define STORE_H
 
