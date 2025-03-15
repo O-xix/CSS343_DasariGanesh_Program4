@@ -253,6 +253,10 @@ void Store::processCommands(const string& filename) {
                     continue;
                 }
             }
+            else {
+                cout << "ERROR: " << genre << " Invalid Genre. Try Again." << endl;
+                continue;
+            }
         }
         else {
             cout << "ERROR: " << command << " Invalid Transaction Type. Try Again." << endl;
@@ -299,11 +303,15 @@ Customer* Store::getCustomer(int id) {
 
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
     if (genre == 'C') {
-        return inventory_for_classics.get(actor);
+        string actor_first_name, actor_last_name;
+        stringstream ss(title);
+        ss >> actor_first_name >> actor_last_name;
+        return inventory_for_classics.get((actor_first_name + actor_last_name));
     }
     if (title != "###") {
         return inventory.get(title);
     }
     // Default return?
+    cout << "ERROR: getMovie(), Movie Not Found." << endl;
     return nullptr;
 }

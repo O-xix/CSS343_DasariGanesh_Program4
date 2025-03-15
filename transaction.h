@@ -12,7 +12,7 @@ class Store;
 class Transaction {
 public:
     Transaction(); //Default Action constructor
-    void process(Store* store); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
+    virtual void process(Store* store); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
     virtual void print();
     char getTransactionType(); //Returns the transaction type of the transaction object.
     void setTransactionType(char type); //Sets the transaction type of the transaction object.
