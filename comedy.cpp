@@ -11,7 +11,7 @@ using namespace std;
 void Comedy::display() const {
     cout << setw(8) << left << getGenre() << setw(8) << left << "D" << setw(35)
        << left << getTitle() << setw(22) << left << getDirector() << setw(8) << left
-       << getYearReleased << setw(8) << left << getStock() << endl;
+       << getYearReleased() << setw(8) << left << getStock() << endl;
 }
 
 void Comedy::borrow() {

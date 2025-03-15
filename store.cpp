@@ -220,7 +220,7 @@ void Store::processCommands(const string& filename) {
             ss >> customer_id >> media_type >> genre;
 
             if (customers.get(customer_id) == nullptr) {
-                cout << "ERROR: Borrow or Return Transaction Failed -- Customer " << customer_id << "does not exist" << endl;
+                cout << "ERROR: Borrow or Return Transaction Failed -- Customer " << customer_id << " does not exist" << endl;
                 continue;
             }
 
@@ -378,7 +378,7 @@ void Store::displayInventory() {
     cout << "----------------------------------------------------------------------------------------------" << endl;
     cout << "Classics:" << endl;
     cout << setw(8) << left << "Genre" << setw(8) << left << "Media" << setw(35)
-       << left << "Title" << setw(22) << left << "Director" << setw(8) << left
+       << left << "Title" << setw(22) << left << "Director" << setw(22) << left << "Actor" << setw(8) << left
        << "Month" << setw(8) << left << "Year" << setw(8) << left << "Stock"
        << endl;
     for (int i = 0; i < sortedClassics.size(); i++) {

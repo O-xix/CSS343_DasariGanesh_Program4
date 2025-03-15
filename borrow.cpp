@@ -27,3 +27,7 @@ void Borrow::process(Store* store) {
 void Borrow::print() {
     cout << "Borrowed " << movie->getTitle() << " by " << movie->getDirector() << endl;
 }
+
+Movie* Borrow::getMovie() {
+    return movie;
+}

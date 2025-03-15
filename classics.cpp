@@ -12,7 +12,7 @@ using namespace std;
 
 void Classics::display() const {
     cout << setw(8) << left << getGenre() << setw(8) << left << 'D' << setw(35)
-       << left << getTitle() << setw(22) << left << major_actor_name << setw(8) << left
+       << left << getTitle() << setw(22) << left << getDirector() << setw(22) << left << major_actor_name << setw(8) << left
        << release_month << setw(8) << left << getYearReleased() << setw(8) << left << getStock()
        << endl;
 }

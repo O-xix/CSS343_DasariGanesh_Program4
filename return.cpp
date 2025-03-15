@@ -14,6 +14,9 @@ void Return::process(Store* store) {
         cout << ">> Movie not found; void Return::process(Store* store)" << endl;
         return;
     }
+    if (!store->getCustomer(customer_id)->containsBorrowTransaction(movie)) {
+        cout << "ERROR: Customer " << customer_id << " has not borrowed " << title << "." << endl;
+    }
     store->getCustomer(customer_id)->addTransaction(this);
     movie->incrementStock();
 }

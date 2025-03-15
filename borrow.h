@@ -9,8 +9,8 @@
 using namespace std;
 
 #include "transaction.h"
-#include "movie.h"
 #include "store.h"
+#include "movie.h"
 
 class Borrow : public Transaction {
 public:
@@ -30,6 +30,8 @@ public:
 
     void process(Store* store); //Inherited method to process the type of transaction where this method would be called, if ever it needed to be. Can be overloaded with additional parameters if necessary for a transaction.
     void print();
+
+    Movie* getMovie();
 private:
     int customer_id = -1;
     char media_type = '@';
