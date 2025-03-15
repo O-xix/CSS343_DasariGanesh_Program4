@@ -3,27 +3,18 @@
 //
 
 #include "customer.h"
+//#include "borrow.h"
 #include <iostream>
 #include <vector>
-
-#include "borrow.h"
+#include "transaction.h"
 using namespace std;
 
 void Customer::addTransaction(Transaction* transaction) {
     transactionHistory.push_back(transaction);
 }
 
-bool Customer::containsBorrowTransaction(Movie* other_movie) {
-    Borrow* borrow;
-    for (int i = transactionHistory.size() - 1; i > -1; i--) {
-        if (transactionHistory[i]->getTransactionType() == 'B') {
-            borrow = dynamic_cast<Borrow*>(transactionHistory[i]);
-            if (borrow->getMovie() == other_movie) {
-                return true;
-            }
-        }
-    }
-    return false;
+vector<Transaction*>* Customer::getTransactions() {
+    return &transactionHistory;
 }
 
 void Customer::displayHistory() {

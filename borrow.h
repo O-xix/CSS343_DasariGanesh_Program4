@@ -9,8 +9,8 @@
 using namespace std;
 
 #include "transaction.h"
-#include "store.h"
 #include "movie.h"
+#include "store.h"
 
 class Borrow : public Transaction {
 public:

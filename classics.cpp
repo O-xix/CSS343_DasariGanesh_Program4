@@ -45,7 +45,7 @@ bool Classics::operator==(const Movie& rhs) const {
     return (getDirector() == rhs.getDirector()) &&
            (getTitle() == rhs.getTitle()) &&
            (getYearReleased() == rhs.getYearReleased()) &&
-           (major_actor_name == dynamic_cast<const Classics&>(rhs).major_actor_name);
+           (major_actor_name == dynamic_cast<const Classics&>(rhs).major_actor_name) && (getReleaseMonth() == dynamic_cast<const Classics&>(rhs).release_month);
 }
 
 bool Classics::operator!=(const Movie& rhs) const {

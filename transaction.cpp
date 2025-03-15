@@ -7,6 +7,7 @@
 // transaction type, processing, and printing transaction details.
 // -------------------------------------------------------------------- 
 #include "transaction.h"
+#include "store.h"
 
 // ---------- Transaction Constructor -----------
 // Description: Constructor for the Transaction class. Initializes the transaction_type to 

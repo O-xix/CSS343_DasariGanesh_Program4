@@ -12,13 +12,15 @@
 
 using namespace std;
 
+//class Borrow;
+
 class Customer{
 public:
     Customer(); //Default constructor
     Customer(int customer_id, string last_name, string first_name) : customer_id(customer_id), last_name(last_name), first_name(first_name) {};
     void addTransaction(Transaction* transaction); //Add a transaction the Customer has made to the transactionHistory for that Customer
     void displayHistory(); //Prints out history in chronological order as the transaction appears in the transactions file.
-    bool containsBorrowTransaction(Movie* other_movie);
+    vector<Transaction*>* getTransactions();
     void printName();
 private:
     int customer_id; //Stores unique customer ID

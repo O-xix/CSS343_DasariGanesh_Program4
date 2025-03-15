@@ -84,7 +84,7 @@ void Store::initInventory(const string& filename) {
             getline(ss, temp, ' '); month_released = stoi(temp);
             getline(ss, temp); year_released = stoi(temp);
             classicMovie = new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released);
-            inventory_for_classics.insert((actor_first_name + actor_last_name), classicMovie);
+            inventory_for_classics.insert((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released)), classicMovie);
             sortedClassics.push_back(classicMovie);
         }
         else if (genre == 'F') {
@@ -224,6 +224,11 @@ void Store::processCommands(const string& filename) {
                 continue;
             }
 
+            if (media_type != 'D') {
+                cout << "ERROR: Borrow or Return Transaction Failed -- Media Type " << media_type << " does not exist" << endl;
+                continue;
+            }
+
             if (genre == 'F') {
                 // Comedy
                 string title;
@@ -285,14 +290,14 @@ void Store::processCommands(const string& filename) {
                 //getline(ss, actor);
                 actor = actor_first_name + " " + actor_last_name;
                 if (command == 'B') {
-                    if (inventory_for_classics.get((actor_first_name + actor_last_name)) == nullptr) {
+                    if (inventory_for_classics.get((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released))) == nullptr) {
                         cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
                     transaction = new Borrow(customer_id, media_type, genre, month_released, year_released, actor);
                 } 
                 else if (command == 'R') {
-                    if (inventory_for_classics.get((actor_first_name + actor_last_name)) == nullptr) {
+                    if (inventory_for_classics.get((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released))) == nullptr) {
                         cout << "ERROR: Borrow Transaction Failed -- Classic Movie with actor (" << actor << ") does not exist in the Inventory" << endl;
                         continue;
                     }
@@ -406,7 +411,7 @@ Movie* Store::getMovie(char media_type, char genre, string director, string acto
         string actor_first_name, actor_last_name;
         stringstream ss(actor);
         ss >> actor_first_name >> actor_last_name;
-        Movie* movie = inventory_for_classics.get((actor_first_name + actor_last_name));
+        Movie* movie = inventory_for_classics.get((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released)));
         return movie;
     }
     if (title != "###") {
