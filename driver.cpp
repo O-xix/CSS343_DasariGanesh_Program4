@@ -9,6 +9,11 @@ using namespace std;
 #include "store.h"
 
 
+// Compile command: g++ driver.cpp -o output
+// Run command: ./output data4movies.txt data4customers.txt data4commands.txt
+// Alternate run command (for files that don't have that naming structure): ./output <movie.txt-file> <customer.txt-file> <commands.txt-file> 
+
+
 int main(int argc, char *argv[]) {
 //int main(int argc, char *argv[]) {
     // Requires three files, in this order: Movies, Customers, Commands
