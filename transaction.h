@@ -1,6 +1,12 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- transaction.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Header for the Transaction class, representing a generic 
+// transaction. This class provides methods to get/set the transaction 
+// type, and process transactions (to be overridden in derived classes).
+// -------------------------------------------------------------------- 
 
 #ifndef TRANSACTION_H
 #define TRANSACTION_H

@@ -1,7 +1,12 @@
-//
-// Created by tdasari on 3/7/25.
-//
-
+//-------------------------- store.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 3/7/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines the `Store` class, which represents a video rental store. The class handles
+// the store's movie inventory, customer management, and processing of various transactions. It allows the store
+// to manage its inventory, add and remove movies, interact with customers, and process transaction commands from a file.
+// -------------------------------------------------------------------- 
 #ifndef STORE_H
 #define STORE_H
 

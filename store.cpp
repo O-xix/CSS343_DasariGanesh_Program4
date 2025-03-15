@@ -1,7 +1,13 @@
-//
-// Created by tdasari on 3/7/25.
-//
-
+//-------------------------- store.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 3/7/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Implements the Store class that handles inventory management, 
+// customer interactions, and processing movie transactions. 
+// This file provides methods for initializing movie and customer 
+// data, processing commands, and manipulating the store's inventory
+// -------------------------------------------------------------------- 
 #include "store.h"
 #include "movie.h"
 #include "comedy.h"
@@ -20,10 +26,20 @@
 #include <sstream>
 using namespace std;
 
+// ---------- Store Constructor -----------
+// Description: Constructor for the Store class that outputs a message when the store is created.
+// preconditions: None
+// postconditions: The store object is created, and the message "FINISH: Store was created" is displayed.
 Store::Store() {
   cout << "FINISH: Store was created" << endl;
 }
 
+// ---------- initInventory -----------
+// Description: Initializes the store's inventory by reading movie data 
+// from a file and storing them based on genre. 
+// preconditions: The filename points to a valid file containing movie data.
+// postconditions: Movies are added to the store's inventory for each genre, 
+// and any invalid genres are flagged as errors.
 void Store::initInventory(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -106,6 +122,11 @@ void Store::initInventory(const string& filename) {
     cout << "FINISH: Inventory created and file closed" << endl;
 }
 
+// ---------- initCustomers -----------
+// Description: Initializes the customers by reading customer data from a file and storing it in a container.
+// preconditions: The filename points to a valid file containing customer data formatted with the customer's ID, 
+// first name, and last name.
+// postconditions: Each customer is added to the store's customer container, and any invalid data is handled appropriately.
 void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -133,6 +154,11 @@ void Store::initCustomers(const string& filename) {
     cout << "FINISH: Customers all received" << endl;
 }
 
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 void Store::processCommands(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -282,25 +308,49 @@ void Store::processCommands(const string& filename) {
 
 // Following are methods used to manipulate the Store object
 
-
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 void Store::addMovie(Movie* movie) {
     inventory.insert(movie->getTitle(), movie);
 }
 
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 void Store::removeMovie(const string& title) {
     inventory.remove(title);
 }
 
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 void Store::displayInventory() {
     for (int i = 0; i < sortedMovies.size(); i++) {
         sortedMovies[i].display();
     }
 }
 
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 Customer* Store::getCustomer(int id) {
     return customers.get(id);
 }
 
+// ---------- Transaction Constructor -----------
+// Description: Constructor for the Transaction class. Initializes the transaction_type to 
+// a default value of ' ' (empty space).
+// Preconditions: None
+// Postconditions: `transaction_type` is set to a default value of ' '.
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
     if (genre == 'C') {
         string actor_first_name, actor_last_name;
