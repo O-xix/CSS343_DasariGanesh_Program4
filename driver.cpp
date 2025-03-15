@@ -30,9 +30,9 @@ int main() {
     Store store;
 
     //"data4movies.txt", using absolute file paths here because CMAKE is horrible with understanding what's in your directory
-    store.initInventory("/home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4/data4movies.txt");//lol venom
-    store.initCustomers("/home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4/data4customers.txt");//hi
-    store.processCommands("/home/NETID/tdasari/CSS 343/Dasari_Ganesh_Program4/data4commands.txt");
+    store.initInventory("data4movies.txt");//lol venom
+    store.initCustomers("data4customers.txt");//hi
+    store.processCommands("data4commands.txt");
 
 
     //Testing PR
