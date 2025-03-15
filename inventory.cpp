@@ -11,18 +11,23 @@
 #include <iostream>
 using namespace std;
 
-// ---------- Inventory Constructor -----------
-// Description: Default constructor for the `Inventory` class, setting the transaction type to 'I'.  
-// preconditions: None.  
-// postconditions: The `Inventory` transaction is initialized with type 'I'.  
+/**
+ * @brief Constructor for the Inventory class. Sets the transaction type to 'I'.
+ * 
+ * @pre None
+ * @post The transaction type is set to 'I'.
+ */
 Inventory::Inventory() {
     setTransactionType('I');
 }
 
-// ---------- process -----------
-// Description: Processes an inventory transaction by printing the store’s current movie inventory.  
-// preconditions: The store must be properly initialized with movie data.  
-// postconditions: The store’s full inventory is printed in a formatted manner.  
+/**
+ * @brief Processes the inventory transaction.
+ * 
+ * @param store A pointer to the Store object.
+ * @pre A valid Store object is passed as a parameter.
+ * @post The store's inventory is displayed.
+ */
 void Inventory::process(Store* store) {
     // Print out the inventory, as in into the output:
     cout << ">> Store Inventory (I) has been requested:" << endl;
@@ -30,10 +35,12 @@ void Inventory::process(Store* store) {
     store->displayInventory();
 }
 
-// ---------- print -----------
-// Description: Prints a message indicating that an inventory request was made.  
-// preconditions: None.  
-// postconditions: A message is printed confirming the inventory request.  
+/**
+ * @brief Prints the details of the inventory transaction.
+ * 
+ * @pre The Inventory object has been created.
+ * @post Outputs the details of the inventory request to the console.
+ */
 void Inventory::print() {
     cout << ">> Store Inventory (I) has been requested." << endl;
 }

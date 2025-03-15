@@ -29,20 +29,23 @@
 #include <iomanip>
 using namespace std;
 
-// ---------- Store Constructor -----------
-// Description: Constructor for the Store class that outputs a message when the store is created.
-// preconditions: None
-// postconditions: The store object is created, and the message "FINISH: Store was created" is displayed.
+/**
+ * @brief Constructor for the Store class that outputs a message when the store is created.
+ * 
+ * @pre None
+ * @post The store object is created, and the message "FINISH: Store was created" is displayed.
+ */
 Store::Store() {
   cout << "FINISH: Store was created" << endl;
 }
 
-// ---------- initInventory -----------
-// Description: Initializes the store's inventory by reading movie data 
-// from a file and storing them based on genre. 
-// preconditions: The filename points to a valid file containing movie data.
-// postconditions: Movies are added to the store's inventory for each genre, 
-// and any invalid genres are flagged as errors.
+/**
+ * @brief Initializes the store's inventory by reading movie data from a file and storing them based on genre.
+ * 
+ * @param filename The name of the file containing movie data.
+ * @pre The filename points to a valid file containing movie data.
+ * @post Movies are added to the store's inventory for each genre, and any invalid genres are flagged as errors.
+ */
 void Store::initInventory(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -157,11 +160,13 @@ void Store::initInventory(const string& filename) {
     cout << "FINISH: Inventory created and file closed" << endl;
 }
 
-// ---------- initCustomers -----------
-// Description: Initializes the customers by reading customer data from a file and storing it in a container.
-// preconditions: The filename points to a valid file containing customer data formatted with the customer's ID, 
-// first name, and last name.
-// postconditions: Each customer is added to the store's customer container, and any invalid data is handled appropriately.
+/**
+ * @brief Initializes the customers by reading customer data from a file and storing it in a container.
+ * 
+ * @param filename The name of the file containing customer data.
+ * @pre The filename points to a valid file containing customer data formatted with the customer's ID, first name, and last name.
+ * @post Each customer is added to the store's customer container, and any invalid data is handled appropriately.
+ */
 void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
