@@ -17,6 +17,8 @@
 #include "hashmap.h"
 #include "transaction.h"
 #include "classics.h"
+#include "comedy.h"
+#include "drama.h"
 using namespace std;
 
 class Store{
@@ -53,7 +55,10 @@ private:
     HashMap<int, Customer*> customers = HashMap<int, Customer*>(13); //Enables fast lookup of customers by ID
     HashMap<string, Movie*> inventory = HashMap<string, Movie*>(31); //Enables fast lookup of movies by title
     HashMap<string, Classics*> inventory_for_classics = HashMap<string, Classics*>(31); //Enables fast lookup of classic movies by major actor
-    vector<Movie> sortedMovies; //Stores movies in required sorted order
+    vector<Classics*> sortedClassics; //Stores movies in required sorted order
+    vector<Comedy*> sortedComedies;
+    vector<Drama*> sortedDramas;
+
     vector<string> commands_from_file; //Stores command inputs to translate into Action objects
     vector<Transaction*> transactions; //Stores actions for processing individuals
 };

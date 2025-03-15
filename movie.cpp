@@ -66,7 +66,7 @@ void Movie::incrementStock() {
 }
 
 // Define the virtual functions
-void Movie::display() {
+void Movie::display() const {
     cout << "Title: " << title << ", Director: " << director << ", Year: " << year_released << ", Stock: " << stock << endl;
 }
 

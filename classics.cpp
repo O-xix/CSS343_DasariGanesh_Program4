@@ -6,11 +6,15 @@
 
 #include "classics.h"
 #include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
-void Classics::display() {
-    cout << "Classics: " << getTitle() << ", " << getDirector() << ", " << major_actor_name
-         << ", Released in " << release_month << "/" << getYearReleased() << endl;
+void Classics::display() const {
+    cout << setw(8) << left << getGenre() << setw(8) << left << 'D' << setw(35)
+       << left << getTitle() << setw(22) << left << major_actor_name << setw(8) << left
+       << release_month << setw(8) << left << getYearReleased() << setw(8) << left << getStock()
+       << endl;
 }
 
 void Classics::borrow() {
@@ -19,6 +23,22 @@ void Classics::borrow() {
 
 void Classics::returnMovie() {
     incrementStock();
+}
+
+int Classics::getReleaseMonth() const {
+    return release_month;
+}
+
+void Classics::setReleaseMonth(const int releaseMonth) {
+    release_month = releaseMonth;
+}
+
+string Classics::getMajorActorName() const {
+    return major_actor_name;
+}
+
+void Classics::setMajorActorName(const string majorActorName) {
+    major_actor_name = majorActorName;
 }
 
 bool Classics::operator==(const Movie& rhs) const {
@@ -33,13 +53,14 @@ bool Classics::operator!=(const Movie& rhs) const {
 }
 
 bool Classics::operator<(const Movie& rhs) const {
-    if (getDirector() < rhs.getDirector()) {
+    if (getYearReleased() < rhs.getYearReleased()) {
         return true;
-    } else if (getDirector() == rhs.getDirector()) {
-        if (getTitle() < rhs.getTitle()) {
+    }
+    if (getYearReleased() == rhs.getYearReleased()) {
+        if (getReleaseMonth() < dynamic_cast<const Classics&>(rhs).getReleaseMonth()) {
             return true;
-        } else if (getTitle() == rhs.getTitle()) {
-            return release_month < dynamic_cast<const Classics&>(rhs).release_month;
+        } else if (getReleaseMonth() == dynamic_cast<const Classics&>(rhs).getReleaseMonth()) {
+            return getMajorActorName() < dynamic_cast<const Classics&>(rhs).getMajorActorName();
         }
     }
     return false;

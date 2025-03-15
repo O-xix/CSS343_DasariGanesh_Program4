@@ -3,12 +3,15 @@
 //
 
 #include "comedy.h"
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
 
-void Comedy::display() {
-    cout << "Comedy: " << getTitle() << ", " << getDirector() << ", " << getYearReleased() << endl;
+void Comedy::display() const {
+    cout << setw(8) << left << getGenre() << setw(8) << left << "D" << setw(35)
+       << left << getTitle() << setw(22) << left << getDirector() << setw(8) << left
+       << getYearReleased << setw(8) << left << getStock() << endl;
 }
 
 void Comedy::borrow() {
@@ -28,10 +31,10 @@ bool Comedy::operator!=(const Movie& rhs) const {
 }
 
 bool Comedy::operator<(const Movie& rhs) const {
-    if (getDirector() < rhs.getDirector()) {
+    if (getTitle() < rhs.getTitle()) {
         return true;
-    } else if (getDirector() == rhs.getDirector()) {
-        return getTitle() < rhs.getTitle();
+    } else if (getTitle() == rhs.getTitle()) {
+        return getYearReleased() < rhs.getYearReleased();
     }
     return false;
 }

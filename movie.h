@@ -12,7 +12,7 @@ using namespace std;
 class Movie {
 public:
     Movie(int stock, const string director, const string& title, int year_released); // Default constructor, assigns values to respective fields
-    virtual void display(); // To display movies in their respective formats, depending on the genre
+    virtual void display() const; // To display movies in their respective formats, depending on the genre
     virtual void borrow(); // To be used by the Borrow transaction
     virtual void returnMovie(); // To be used by the Return transaction
     virtual bool operator==(const Movie& rhs) const; // Equivalency operator overload

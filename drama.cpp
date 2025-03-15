@@ -3,6 +3,9 @@
 //
 
 #include "drama.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 void Drama::borrow() {
     decrementStock();
@@ -12,8 +15,10 @@ void Drama::returnMovie() {
     incrementStock();
 }
 
-void Drama::display() {
-    cout << "Drama: " << getTitle() << ", " << getDirector() << ", " << getYearReleased() << endl;
+void Drama::display() const {
+    cout << setw(8) << left << getGenre() << setw(8) << left << "D" << setw(35)
+       << left << getTitle() << setw(22) << left << getDirector() << setw(8) << left
+       << getYearReleased() << setw(8) << left << getStock << endl;
 }
 
 bool Drama::operator==(const Movie& rhs) const {

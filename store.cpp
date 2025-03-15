@@ -24,6 +24,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
+#include <iomanip>
 using namespace std;
 
 // ---------- Store Constructor -----------
@@ -60,6 +62,9 @@ void Store::initInventory(const string& filename) {
 
     string line;
     Movie* movie = nullptr;
+    Classics* classicMovie = nullptr;
+    Drama* dramaMovie = nullptr;
+    Comedy* comedyMovie = nullptr;
     while (getline(file, line)) {
         genre = line[0];
         if (genre == 'C') {
@@ -78,7 +83,9 @@ void Store::initInventory(const string& filename) {
             getline(ss, actor_last_name, ' '); // actor until space
             getline(ss, temp, ' '); month_released = stoi(temp);
             getline(ss, temp); year_released = stoi(temp);
-            inventory_for_classics.insert((actor_first_name + actor_last_name), new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released));
+            classicMovie = new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released);
+            inventory_for_classics.insert((actor_first_name + actor_last_name), classicMovie);
+            sortedClassics.push_back(classicMovie);
         }
         else if (genre == 'F') {
             // Comedy
@@ -93,8 +100,10 @@ void Store::initInventory(const string& filename) {
             getline(ss, title, ',');
             ss.ignore(1); // Ignore the space after the comma
             getline(ss, temp); year_released = stoi(temp);
-            movie = new Comedy(stock, director, title, year_released);
+            comedyMovie = new Comedy(stock, director, title, year_released);
+            movie = comedyMovie;
             inventory.insert(title, movie);
+            sortedComedies.push_back(comedyMovie);
         }
         else if (genre == 'D') {
             // Drama
@@ -109,16 +118,26 @@ void Store::initInventory(const string& filename) {
             getline(ss, title, ',');
             ss.ignore(1); // Ignore the space after the comma
             getline(ss, temp); year_released = stoi(temp);
-            movie = new Drama(stock, director, title, year_released);
+            dramaMovie = new Drama(stock, director, title, year_released);
+            movie = dramaMovie;
             inventory.insert(title, movie);
+            sortedDramas.push_back(dramaMovie);
         }
         else {
             cout << "ERROR: " << genre << " Invalid Genre. Try Again." << endl;
             continue;
         }
         movie = nullptr;
+        dramaMovie = nullptr;
+        classicMovie = nullptr;
+        comedyMovie = nullptr;
     }
     file.close();
+
+    sort(sortedComedies.begin(), sortedComedies.end(), [](Comedy* a, Comedy* b) { return *a < *b; });
+    sort(sortedDramas.begin(), sortedDramas.end(), [](Drama* a, Drama* b) { return *a < *b; });
+    sort(sortedClassics.begin(), sortedClassics.end(), [](Classics* a, Classics* b) { return *a < *b; });
+
     cout << "FINISH: Inventory created and file closed" << endl;
 }
 
@@ -337,9 +356,35 @@ void Store::removeMovie(const string& title) {
 // Preconditions: None
 // Postconditions: `transaction_type` is set to a default value of ' '.
 void Store::displayInventory() {
-    for (int i = 0; i < sortedMovies.size(); i++) {
-        sortedMovies[i].display();
+    // Display Comedies:
+    cout << "----------------------------------------------------------------------------------------------" << endl;
+    cout << "Comedies:" << endl;
+    cout << setw(8) << left << "Genre" << setw(8) << left << "Media" << setw(35)
+       << left << "Title" << setw(22) << left << "Director" << setw(8) << left
+       << "Year" << setw(8) << left << "Stock" << endl;
+    for (int i = 0; i < sortedComedies.size(); i++) {
+        sortedComedies[i]->display();
     }
+    // Display Dramas:
+    cout << "----------------------------------------------------------------------------------------------" << endl;
+    cout << "Dramas:" << endl;
+    cout << setw(8) << left << "Genre" << setw(8) << left << "Media" << setw(35)
+       << left << "Title" << setw(22) << left << "Director" << setw(8) << left
+       << "Year" << setw(8) << left << "Stock" << endl;
+    for (int i = 0; i < sortedDramas.size(); i++) {
+        sortedDramas[i]->display();
+    }
+    // Display Classics:
+    cout << "----------------------------------------------------------------------------------------------" << endl;
+    cout << "Classics:" << endl;
+    cout << setw(8) << left << "Genre" << setw(8) << left << "Media" << setw(35)
+       << left << "Title" << setw(22) << left << "Director" << setw(8) << left
+       << "Month" << setw(8) << left << "Year" << setw(8) << left << "Stock"
+       << endl;
+    for (int i = 0; i < sortedClassics.size(); i++) {
+        sortedClassics[i]->display();
+    }
+    cout << "----------------------------------------------------------------------------------------------" << endl;
 }
 
 // ---------- Transaction Constructor -----------

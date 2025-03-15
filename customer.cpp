@@ -15,11 +15,10 @@ void Customer::displayHistory() {
     // reverse chronologically (what description says)
 
     // chronologically (which makes sense)
-    for (Transaction* transaction : transactionHistory) {
-        if (transaction->getTransactionType() == 'B' || transaction->getTransactionType() == 'R') {
-            cout << transaction->getTransactionType() << " ";
-            transaction->print();
-
+    for (int i = transactionHistory.size() - 1; i > -1; i--) {
+        if (transactionHistory[i]->getTransactionType() == 'B' || transactionHistory[i]->getTransactionType() == 'R') {
+            cout << transactionHistory[i]->getTransactionType() << " ";
+            transactionHistory[i]->print();
         }
     }
     cout << endl;
