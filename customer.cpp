@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-void Customer::addTransaction(const Transaction& transaction) {
+void Customer::addTransaction(Transaction* transaction) {
     transactionHistory.push_back(transaction);
 }
 
@@ -15,14 +15,14 @@ void Customer::displayHistory() {
     // reverse chronologically (what description says)
 
     // chronologically (which makes sense)
-    for (int i = 0; i < transactionHistory.size(); i++) {
-      if (transactionHistory[i].getTransactionType() == 'B' || transactionHistory[i].getTransactionType() == 'R') {
-        cout << transactionHistory[i].getTransactionType() << " ";
-        transactionHistory[i].print();
-        cout << endl;
-        
-      }
+    for (Transaction* transaction : transactionHistory) {
+        if (transaction->getTransactionType() == 'B' || transaction->getTransactionType() == 'R') {
+            cout << transaction->getTransactionType() << " ";
+            transaction->print();
+
+        }
     }
+    cout << endl;
 }
 
 void Customer::printName() {
