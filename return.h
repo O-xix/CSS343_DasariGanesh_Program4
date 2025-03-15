@@ -1,7 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
-
+//-------------------------- return.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Defines the `Return` class, a derived class of `Transaction`, that handles the return of borrowed movies.  
+// This class allows customers to return movies of different genres.
+// -------------------------------------------------------------------- 
 #ifndef RETURN_H
 #define RETURN_H
 

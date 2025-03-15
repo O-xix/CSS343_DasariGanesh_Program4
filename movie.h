@@ -1,7 +1,12 @@
-//
-// Created by tdasari on 2/25/25.
-//
-
+//-------------------------- movie.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: Defines the `Movie` class, which serves as a base class for different movie genres.  
+// It provides essential attributes and methods for managing movie details, stock, and  
+// transaction-related operations like borrowing and returning movies.  
+// -------------------------------------------------------------------- 
 #ifndef MOVIE_H
 #define MOVIE_H
 
