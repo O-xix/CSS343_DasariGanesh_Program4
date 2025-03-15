@@ -16,7 +16,7 @@ class Borrow : public Transaction {
 public:
     // Easy way: just create three constructors, one for each type of movie
     // Classics:
-    Borrow(int customer_id, char media_type, char genre, int month_released, int year_released, string director) : transaction_type('B'), customer_id(customer_id), media_type(media_type), genre(genre), month_released(month_released), year_released(year_released), director(director) {}; //Default Action constructor
+    Borrow(int customer_id, char media_type, char genre, int month_released, int year_released, string actor) : transaction_type('B'), customer_id(customer_id), media_type(media_type), genre(genre), month_released(month_released), year_released(year_released), actor(actor) {}; //Default Action constructor
     // Comedy:
     Borrow(int customer_id, char media_type, char genre, string title, int year_released) : transaction_type('B'), customer_id(customer_id), media_type(media_type), genre(genre), title(title), year_released(year_released) {}; //Default Action constructor
     // Drama:
