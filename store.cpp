@@ -84,6 +84,10 @@ void Store::initInventory(const string& filename) {
             getline(ss, temp, ' '); month_released = stoi(temp);
             getline(ss, temp); year_released = stoi(temp);
             classicMovie = new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released);
+            if (inventory_for_classics.get((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released))) != nullptr) {
+                cout << "ERROR: Classic movie " << title << " starring " << actor_first_name << " " << actor_last_name << " already exists" << endl;
+                continue;
+            }
             inventory_for_classics.insert((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released)), classicMovie);
             sortedClassics.push_back(classicMovie);
         }
@@ -102,6 +106,10 @@ void Store::initInventory(const string& filename) {
             getline(ss, temp); year_released = stoi(temp);
             comedyMovie = new Comedy(stock, director, title, year_released);
             movie = comedyMovie;
+            if (inventory.get(title) != nullptr) {
+                cout << "ERROR: Comedy movie " << title << " already exists" << endl;
+                continue;
+            }
             inventory.insert(title, movie);
             sortedComedies.push_back(comedyMovie);
         }
@@ -120,6 +128,10 @@ void Store::initInventory(const string& filename) {
             getline(ss, temp); year_released = stoi(temp);
             dramaMovie = new Drama(stock, director, title, year_released);
             movie = dramaMovie;
+            if (inventory.get(title) != nullptr) {
+                cout << "ERROR: Drama movie " << title << " already exists" << endl;
+                continue;
+            }
             inventory.insert(title, movie);
             sortedDramas.push_back(dramaMovie);
         }
