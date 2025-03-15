@@ -11,6 +11,13 @@
 #include "borrow.h"
 using namespace std;
 
+/**
+ * @brief Processes the return transaction.
+ * 
+ * @param store A pointer to the Store object.
+ * @pre A valid Store object is passed as a parameter.
+ * @post The movie is returned if it was previously borrowed by the customer.
+ */
 void Return::process(Store* store) {
     movie = store->getMovie(media_type, genre, director, actor, title, month_released, year_released);
     if (movie == nullptr) {
@@ -32,6 +39,12 @@ void Return::process(Store* store) {
     cout << "ERROR: Customer " << customer_id << " has not borrowed " << movie->getTitle() << endl;
 }
 
+/**
+ * @brief Prints the details of the return transaction.
+ * 
+ * @pre The Return object has been created and the movie has been set.
+ * @post Outputs the details of the returned movie to the console.
+ */
 void Return::print() {
     cout << "Returned " << movie->getTitle() << " by " << movie->getDirector() << endl;
 }

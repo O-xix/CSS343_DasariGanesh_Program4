@@ -28,20 +28,23 @@
 #include <iomanip>
 using namespace std;
 
-// ---------- Store Constructor -----------
-// Description: Constructor for the Store class that outputs a message when the store is created.
-// preconditions: None
-// postconditions: The store object is created, and the message "FINISH: Store was created" is displayed.
+/**
+ * @brief Constructor for the Store class that outputs a message when the store is created.
+ * 
+ * @pre None
+ * @post The store object is created, and the message "FINISH: Store was created" is displayed.
+ */
 Store::Store() {
   cout << "FINISH: Store was created" << endl;
 }
 
-// ---------- initInventory -----------
-// Description: Initializes the store's inventory by reading movie data 
-// from a file and storing them based on genre. 
-// preconditions: The filename points to a valid file containing movie data.
-// postconditions: Movies are added to the store's inventory for each genre, 
-// and any invalid genres are flagged as errors.
+/**
+ * @brief Initializes the store's inventory by reading movie data from a file and storing them based on genre.
+ * 
+ * @param filename The name of the file containing movie data.
+ * @pre The filename points to a valid file containing movie data.
+ * @post Movies are added to the store's inventory for each genre, and any invalid genres are flagged as errors.
+ */
 void Store::initInventory(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -156,11 +159,13 @@ void Store::initInventory(const string& filename) {
     cout << "FINISH: Inventory created and file closed" << endl;
 }
 
-// ---------- initCustomers -----------
-// Description: Initializes the customers by reading customer data from a file and storing it in a container.
-// preconditions: The filename points to a valid file containing customer data formatted with the customer's ID, 
-// first name, and last name.
-// postconditions: Each customer is added to the store's customer container, and any invalid data is handled appropriately.
+/**
+ * @brief Initializes the customers by reading customer data from a file and storing it in a container.
+ * 
+ * @param filename The name of the file containing customer data.
+ * @pre The filename points to a valid file containing customer data formatted with the customer's ID, first name, and last name.
+ * @post Each customer is added to the store's customer container, and any invalid data is handled appropriately.
+ */
 void Store::initCustomers(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -193,11 +198,13 @@ void Store::initCustomers(const string& filename) {
     cout << "FINISH: Customers all received" << endl;
 }
 
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Processes commands from a file and executes the corresponding transactions.
+ * 
+ * @param filename The name of the file containing commands.
+ * @pre The filename points to a valid file containing commands.
+ * @post All commands are processed and executed, and any invalid commands are flagged as errors.
+ */
 void Store::processCommands(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -356,31 +363,34 @@ void Store::processCommands(const string& filename) {
     transactions.clear();
 }
 
-// Following are methods used to manipulate the Store object
-
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Adds a movie to the store's inventory.
+ * 
+ * @param movie A pointer to the Movie object to add.
+ * @pre The Movie object has been created.
+ * @post The movie is added to the store's inventory.
+ */
 void Store::addMovie(Movie* movie) {
     inventory.insert(movie->getTitle(), movie);
 }
 
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Removes a movie from the store's inventory.
+ * 
+ * @param title The title of the movie to remove.
+ * @pre The Movie object has been created.
+ * @post The movie is removed from the store's inventory.
+ */
 void Store::removeMovie(const string& title) {
     inventory.remove(title);
 }
 
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Displays the store's inventory.
+ * 
+ * @pre The store's inventory has been initialized.
+ * @post Outputs the store's inventory to the console.
+ */
 void Store::displayInventory() {
     // Display Comedies:
     cout << "----------------------------------------------------------------------------------------------" << endl;
@@ -413,20 +423,32 @@ void Store::displayInventory() {
     cout << "----------------------------------------------------------------------------------------------" << endl;
 }
 
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Gets a customer by their ID.
+ * 
+ * @param id The ID of the customer to retrieve.
+ * @return Customer* A pointer to the Customer object, or nullptr if the customer is not found.
+ * @pre The store's customer data has been initialized.
+ * @post Returns a pointer to the Customer object, or nullptr if the customer is not found.
+ */
 Customer* Store::getCustomer(int id) {
     return customers.get(id);
 }
 
-// ---------- Transaction Constructor -----------
-// Description: Constructor for the Transaction class. Initializes the transaction_type to 
-// a default value of ' ' (empty space).
-// Preconditions: None
-// Postconditions: `transaction_type` is set to a default value of ' '.
+/**
+ * @brief Gets a movie from the store's inventory based on various criteria.
+ * 
+ * @param media_type The media type of the movie.
+ * @param genre The genre of the movie.
+ * @param director The director of the movie.
+ * @param actor The actor in the movie.
+ * @param title The title of the movie.
+ * @param month_released The month the movie was released.
+ * @param year_released The year the movie was released.
+ * @return Movie* A pointer to the Movie object, or nullptr if the movie is not found.
+ * @pre The store's inventory has been initialized.
+ * @post Returns a pointer to the Movie object, or nullptr if the movie is not found.
+ */
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
     if (genre == 'C') {
         string actor_first_name, actor_last_name;

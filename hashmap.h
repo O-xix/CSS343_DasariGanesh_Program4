@@ -19,31 +19,92 @@ struct Node {
 template <typename K, typename V>
 class HashMap {
 public:
+    /**
+     * @brief Constructs a HashMap with the given capacity.
+     * 
+     * @param capacity The capacity of the HashMap.
+     * @pre None
+     * @post The HashMap is created with the specified capacity.
+     */
     HashMap(int capacity);
         //Initialize table with capacity
         //Set size to 0
+    /**
+     * @brief Destroys the HashMap and frees all allocated memory.
+     * 
+     * @pre The HashMap has been created.
+     * @post All memory allocated for the HashMap is freed.
+     */
     ~HashMap();
         //Clear all LinkedLists in array indices for the table
+
+    /**
+     * @brief Inserts a key-value pair into the HashMap.
+     * 
+     * @param key The key to insert.
+     * @param value The value to insert.
+     * @pre The HashMap has been created.
+     * @post The key-value pair is inserted into the HashMap.
+     */
     void insert(K key, V value);
     //To insert values into the HashMap
     //Would calculate hash value through a hash function
     //Would insert into table with key and value
     //Upon collision, would handle using open hashing, separate chaining, adding a node linked to nodes already at that index
+    /**
+     * @brief Retrieves the value associated with the given key.
+     * 
+     * @param key The key to search for.
+     * @return V The value associated with the key.
+     * @pre The HashMap has been created.
+     * @post Returns the value associated with the key.
+     */
     V get(K key);
     //To get values from the HashMap
     //Would go to the hash value/index in the table through traversal
     //Look for the key in the “bucket”, the LinkedList at that index
     //Retrieve the value associated with that key
+    /**
+     * @brief Removes the key-value pair associated with the given key.
+     * 
+     * @param key The key to remove.
+     * @pre The HashMap has been created.
+     * @post The key-value pair is removed from the HashMap.
+     */
     void remove(K key);
     //To remove key-value pairs from the Map
     //Would follow the same logic as the get() method, but would delete the node containing the key-value pair
+    /**
+     * @brief Checks if the HashMap contains the given key.
+     * 
+     * @param key The key to check for.
+     * @return bool True if the key is found, false otherwise.
+     * @pre The HashMap has been created.
+     * @post Returns true if the key is found, false otherwise.
+     */
     bool containsKey(K key);
     //To check if a key is already within the Map
     //Again, would follow the same value as the get() method to find the key, returns true or false if the key was found.
+    /**
+     * @brief Hash function for integer keys.
+     * 
+     * @param key The key to hash.
+     * @return int The hash value of the key.
+     * @pre The HashMap has been created.
+     * @post Returns the hash value of the key.
+     */
     int hash(int key) {
         return key;
     }
 
+    /**
+     * @brief Hash function for string keys.
+     * 
+     * @param key The key to hash.
+     * @return int The hash value of the key.
+     * @pre The HashMap has been created.
+     * @post Returns the hash value of the key.
+     */
     int hash(string& key) {
         int hash = 0;
         for (char c : key) {
@@ -52,6 +113,14 @@ public:
         return hash;
     }
 
+    /**
+     * @brief Finds a value in the HashMap that satisfies the given condition.
+     * 
+     * @param condition A function pointer to the condition to check.
+     * @return V* A pointer to the value that satisfies the condition, or nullptr if no value is found.
+     * @pre The HashMap has been created.
+     * @post Returns a pointer to the value that satisfies the condition, or nullptr if no value is found.
+     */
     V* findValue(bool (*condition)(const V&));
 private:
     Node<K, V>** table; //Pointer to an array of LinkedlList Nodes with LinkedLists attached to those.
