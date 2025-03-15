@@ -338,6 +338,7 @@ void Store::processCommands(const string& filename) {
             continue;
         }
         transactions.push_back(transaction);
+        transaction = nullptr;
     }
     file.close();
 
