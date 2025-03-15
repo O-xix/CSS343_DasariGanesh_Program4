@@ -14,12 +14,8 @@ void Return::process(Store* store) {
         cout << ">> Movie not found; void Return::process(Store* store)" << endl;
         return;
     }
-    store->getCustomer(customer_id)->addTransaction(*this);
-    if (movie->getStock() == 0) {
-        cout << ">> Movie out of stock." << endl;
-        return;
-    }
-    movie->decrementStock();
+    store->getCustomer(customer_id)->addTransaction(this);
+    movie->incrementStock();
 }
 
 void Return::print() {

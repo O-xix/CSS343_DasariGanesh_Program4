@@ -16,7 +16,7 @@ void Borrow::process(Store* store) {
         cout << ">> Movie not found; void Borrow::process(Store* store)" << endl;
         return;
     }
-    store->getCustomer(customer_id)->addTransaction(*this);
+    store->getCustomer(customer_id)->addTransaction(this);
     if (movie->getStock() == 0) {
         cout << ">> Movie out of stock." << endl;
         return;

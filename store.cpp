@@ -174,6 +174,11 @@ void Store::processCommands(const string& filename) {
             char genre;
             ss >> customer_id >> media_type >> genre;
 
+            if (customers.get(customer_id) == nullptr) {
+                cout << "ERROR: Borrow or Return Transaction Failed -- Customer " << customer_id << "does not exist" << endl;
+                continue;
+            }
+
             if (genre == 'F') {
                 // Comedy
                 string title;
