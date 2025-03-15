@@ -86,6 +86,7 @@ void Store::initInventory(const string& filename) {
             classicMovie = new Classics(stock, director, title, (actor_first_name + " " + actor_last_name), month_released, year_released);
             if (inventory_for_classics.get((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released))) != nullptr) {
                 cout << "ERROR: Classic movie " << title << " starring " << actor_first_name << " " << actor_last_name << " already exists" << endl;
+                comedyMovie = nullptr;
                 continue;
             }
             inventory_for_classics.insert((actor_first_name + actor_last_name + to_string(month_released) + to_string(year_released)), classicMovie);
@@ -108,6 +109,7 @@ void Store::initInventory(const string& filename) {
             movie = comedyMovie;
             if (inventory.get(title) != nullptr) {
                 cout << "ERROR: Comedy movie " << title << " already exists" << endl;
+                comedyMovie = nullptr;
                 continue;
             }
             inventory.insert(title, movie);
@@ -130,6 +132,7 @@ void Store::initInventory(const string& filename) {
             movie = dramaMovie;
             if (inventory.get(title) != nullptr) {
                 cout << "ERROR: Drama movie " << title << " already exists" << endl;
+                dramaMovie = nullptr;
                 continue;
             }
             inventory.insert(title, movie);
@@ -177,6 +180,11 @@ void Store::initCustomers(const string& filename) {
 
         // Assuming Customer is a class with a constructor that takes id, first name, and last name
         customer = new Customer(customer_id, last_name, first_name);
+        if (customers.get(customer_id) != nullptr) {
+            cout << "ERROR: Customer " << customer_id << " already exists" << endl;
+            customer = nullptr;
+            continue;
+        }
         customers.insert(customer_id, customer); // Assuming customers is a map or similar container
         customer = nullptr;
     }
