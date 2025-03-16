@@ -1,6 +1,13 @@
-//
-// Created by tdasari on 3/6/25.
-//
+//-------------------------- driver.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This program simulates the operation of a store that manages 
+// movie rentals, customer transactions, and command processing. The program 
+// initializes the store's inventory, customer data, 
+// and processes the given commands sequentially.
+// -------------------------------------------------------------------- 
 #include <iostream>
 #include <string>
 #include <fstream>

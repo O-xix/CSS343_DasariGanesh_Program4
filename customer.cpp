@@ -1,6 +1,13 @@
-//
-// Created by tdasari on 3/7/25.
-//
+//-------------------------- customer.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 3/7/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This file implements the `Customer` class, which manages 
+// customer information and their transaction history. It offers 
+// access to the transaction history through a pointer to 
+// the vector of `Transaction` objects.
+// -------------------------------------------------------------------- 
 
 #include "customer.h"
 #include <iostream>

@@ -1,6 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- classics.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines the `Classics` class, derived from the 
+// `Movie` class, representing classic movies in a movie rental system.
+// -------------------------------------------------------------------- 
 
 #include "classics.h"
 #include <iostream>

@@ -130,11 +130,12 @@ void Movie::setGenre(char genre) {
     this->genre = genre;
 }
 
-// ---------- decrementStock -----------
-// Description: Decreases the stock count of the movie if it is available.  
-// preconditions: The movie stock is greater than zero.  
-// postconditions: The stock is decremented by 1, or an error message 
-// is displayed if the stock is already zero.  
+/**
+ * @brief Decrements the stock of the movie by one.
+ * 
+ * @pre The movie must have a valid stock count greater than or equal to zero.
+ * @post The stock of the movie is decreased by one, or an error message is printed if the stock is zero.
+ */
 void Movie::decrementStock() {
     if (stock > 0) {
         stock--;
@@ -143,44 +144,54 @@ void Movie::decrementStock() {
     }
 }
 
-// ---------- incrementStock -----------
-// Description: Increases the stock count of the movie.  
-// preconditions: None.  
-// postconditions: The stock is incremented by 1.   
+ /**
+ * @brief Increments the stock of the movie by one.
+ * 
+ * @pre None.
+ * @post The stock of the movie is increased by one.
+ */
 void Movie::incrementStock() {
     stock++;
 }
 
-// ---------- display -----------
-// Description: Prints the details of the movie, including title, director, year, and stock count.  
-// preconditions: None.  
-// postconditions: The movie details are printed in a formatted manner.  
+ /**
+ * @brief Displays the details of the movie.
+ * 
+ * @pre The movie must have a valid title, director, year, and stock.
+ * @post The movie's details are printed to the console.
+ */
 void Movie::display() const {
     cout << "Title: " << title << ", Director: " << director << ", Year: " << year_released << ", Stock: " << stock << endl;
 }
 
-// ---------- borrow -----------
-// Description: Simulates the borrowing of a movie by decrementing its stock count.  
-// preconditions: The movie must be available in stock.  
-// postconditions: The stock is reduced by 1 if available. 
+/**
+ * @brief Borrows the movie by decrementing the stock.
+ * 
+ * @pre The movie must have stock available for borrowing.
+ * @post The stock of the movie is decreased by one.
+ */
 void Movie::borrow() {
     decrementStock();
 }
 
-// ---------- returnMovie -----------
-// Description: Simulates the return of a movie by increasing its stock count.  
-// preconditions: None.  
-// postconditions: The stock count is increased by 1.  
+/**
+ * @brief Returns the movie by incrementing the stock.
+ * 
+ * @pre The movie must have been borrowed before.
+ * @post The stock of the movie is increased by one.
+ */
 void Movie::returnMovie() {
     incrementStock();
 }
 
-// ---------- Operator Overloads -----------
-// Description: Comparison operators for sorting and equality checking between movies.  
-// preconditions: Both movies being compared must have valid titles, 
-// directors, and release years.  
-// postconditions: Returns the appropriate boolean value based on the comparison criteria.  
- 
+ /**
+ * @brief Compares two movies for equality.
+ * 
+ * @param rhs The movie object to compare against.
+ * @return bool True if the movies are equal, otherwise false.
+ * @pre None.
+ * @post None.
+ */
 bool Movie::operator==(const Movie& rhs) const {
     return title == rhs.title && director == rhs.director && year_released == rhs.year_released;
 }

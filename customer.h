@@ -1,6 +1,13 @@
-//
-// Created by tdasari on 3/7/25.
-//
+//-------------------------- customer.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 3/7/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines the `Customer` class, which represents 
+// a customer who can have multiple transactions with a store.
+// It stores essential customer information such as their unique 
+// customer ID and names, along with a transaction history.
+// -------------------------------------------------------------------- 
 
 #ifndef CUSTOMER_H
 #define CUSTOMER_H

@@ -160,12 +160,13 @@ void Store::initInventory(const string& filename) {
     cout << "FINISH: Inventory created and file closed" << endl;
 }
 
-/**
- * @brief Initializes the customers by reading customer data from a file and storing it in a container.
+
+ /**
+ * @brief Initializes the customers list from a file.
  * 
  * @param filename The name of the file containing customer data.
- * @pre The filename points to a valid file containing customer data formatted with the customer's ID, first name, and last name.
- * @post Each customer is added to the store's customer container, and any invalid data is handled appropriately.
+ * @pre The file must exist and contain customer information in the format: customer_id, last_name, first_name.
+ * @post The customers list is populated with customers from the file. If a customer already exists, it is skipped.
  */
 void Store::initCustomers(const string& filename) {
     ifstream file;
@@ -199,11 +200,13 @@ void Store::initCustomers(const string& filename) {
     cout << "FINISH: Customers all received" << endl;
 }
 
-// ---------- processCommands -----------
-// Description: Reads a command file and processes a series of transactions including inventory actions, customer history, 
-// borrowing, and returning movies.
-// preconditions: The filename points to a valid file containing a list of transaction commands (borrow, return, etc.).
-// postconditions: Transactions are processed, and any invalid transactions are flagged with appropriate error messages.
+/**
+ * @brief Processes commands from a file, such as transactions related to borrowing, returning, and displaying customer history.
+ * 
+ * @param filename The name of the file containing transaction commands.
+ * @pre The file must exist and contain valid transaction data in the expected format.
+ * @post Processes and executes each transaction in the file, adding the corresponding transaction objects to the system.
+ */
 void Store::processCommands(const string& filename) {
     ifstream file;
     file.open(filename);
@@ -364,26 +367,34 @@ void Store::processCommands(const string& filename) {
 
 // Following are methods used to manipulate the Store object
 
-// ---------- addMovie -----------
-// Description: Adds a movie to the store's inventory. If the movie already exists, it increases the stock count.  
-// preconditions: The movie object must be dynamically allocated and contain valid data.  
-// postconditions: The movie is added to the inventory, or its stock count is incremented if it already exists.  
+/**
+ * @brief Adds a movie to the store's inventory.
+ * 
+ * @param movie The Movie object to be added to the inventory.
+ * @pre The movie must not already exist in the inventory.
+ * @post The movie is added to the inventory.
+ */
 void Store::addMovie(Movie* movie) {
     inventory.insert(movie->getTitle(), movie);
 }
 
-// ---------- removeMovie -----------
-// Description: Removes a movie from the store’s inventory.  
-// preconditions: The movie must exist in the inventory.  
-// postconditions: The movie is removed from the inventory, and if it was dynamically allocated, it may be deallocated.  
+/**
+ * @brief Removes a movie from the store's inventory.
+ * 
+ * @param title The title of the movie to be removed from the inventory.
+ * @pre The movie must exist in the inventory.
+ * @post The movie is removed from the inventory.
+ */
 void Store::removeMovie(const string& title) {
     inventory.remove(title);
 }
 
-// ---------- displayInventory -----------
-// Description: Displays all movies in the store's inventory in sorted order.  
-// preconditions: The inventory must contain at least one movie.  
-// postconditions: A list of movies is printed to the console in sorted order.  
+/**
+ * @brief Displays the store's inventory, organized by genre (Comedy, Drama, and Classic).
+ * 
+ * @pre The inventory must contain movies in each genre.
+ * @post Displays the movie information in a formatted manner for each genre.
+ */
 void Store::displayInventory() {
     // Display Comedies:
     cout << "----------------------------------------------------------------------------------------------" << endl;
@@ -416,18 +427,32 @@ void Store::displayInventory() {
     cout << "----------------------------------------------------------------------------------------------" << endl;
 }
 
-// ---------- getCustomer-----------
-// Description: Retrieves a customer by their ID from the store’s customer database.  
-// preconditions: The customer must exist in the database.  
-// postconditions: Returns a pointer to the customer object if found; otherwise, returns nullptr.  
+/**
+ * @brief Retrieves a customer object by ID.
+ * 
+ * @param id The ID of the customer to retrieve.
+ * @return Customer* A pointer to the Customer object, or nullptr if the customer does not exist.
+ * @pre The customer ID must be valid.
+ * @post None.
+ */
 Customer* Store::getCustomer(int id) {
     return customers.get(id);
 }
 
-// ---------- getMovie -----------
-// Description: Retrieves a movie from the store’s inventory based on its media type, genre, and identifying details.  
-// preconditions: The movie must exist in the inventory, and the provided parameters must match a valid entry.  
-// postconditions: Returns a pointer to the movie object if found; otherwise, returns nullptr.  
+/**
+ * @brief Retrieves a movie object based on various search criteria (media type, genre, director, actor, title, month, and year).
+ * 
+ * @param media_type The type of media (e.g., 'D' for drama).
+ * @param genre The genre of the movie (e.g., 'F' for comedy, 'D' for drama, 'C' for classic).
+ * @param director The director of the movie (used for drama and comedy).
+ * @param actor The actor associated with the classic movie (used for classic genre).
+ * @param title The title of the movie.
+ * @param month_released The month the classic movie was released.
+ * @param year_released The year the movie was released.
+ * @return Movie* A pointer to the Movie object, or nullptr if not found.
+ * @pre The provided search criteria must be valid.
+ * @post None.
+ */
 Movie* Store::getMovie(char media_type, char genre, string director, string actor, string title, int month_released, int year_released) {
     if (genre == 'C') {
         string actor_first_name, actor_last_name;

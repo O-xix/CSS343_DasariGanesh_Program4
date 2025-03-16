@@ -1,6 +1,12 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- borrow.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines the `Borrow` class, derived from the 
+// `Transaction` class, representing a movie borrowing transaction in a 
+// movie rental system.
+// -------------------------------------------------------------------- 
 
 #ifndef BORROW_H
 #define BORROW_H

@@ -17,14 +17,13 @@
 #include "borrow.h"
 using namespace std;
 
-// ---------- process -----------
-// Description: Processes a return transaction by verifying if the customer has borrowed  
-// the movie and updating the store’s inventory accordingly.  
-// preconditions: The movie exists in the store’s inventory. 
-// The customer ID is valid and corresponds to an existing customer.  
-// The movie must have been previously borrowed by the customer.  
-// postconditions: If a matching borrow transaction is found, the return is 
-// recorded, and the movie’s stock is increased, otherwise error message is displayed  
+ /**
+ * @brief Processes the return of a movie by a customer.
+ * 
+ * @param store A pointer to the Store object that holds the customer and movie data.
+ * @pre The customer must exist in the store, and the provided movie search criteria must be valid.
+ * @post The movie stock is incremented, and the return transaction is added to the customer's transaction history if the movie was previously borrowed.
+ */
 void Return::process(Store* store) {
     movie = store->getMovie(media_type, genre, director, actor, title, month_released, year_released);
     if (movie == nullptr) {
@@ -46,10 +45,12 @@ void Return::process(Store* store) {
     cout << "ERROR: Customer " << customer_id << " has not borrowed " << movie->getTitle() << endl;
 }
 
-// ---------- print -----------
-// Description: Prints a message confirming the return of a movie.  
-// preconditions: The movie object must be valid and exist in the store’s inventory.  
-// postconditions: A formatted message is printed, displaying the movie title and director.  
+/**
+ * @brief Prints a confirmation message indicating that a movie has been returned.
+ * 
+ * @pre The movie object must be valid and should have been processed.
+ * @post A confirmation message is printed to the console displaying the movie's title and director.
+ */
 void Return::print() {
     cout << "Returned " << movie->getTitle() << " by " << movie->getDirector() << endl;
 }

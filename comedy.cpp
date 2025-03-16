@@ -1,6 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- comedy.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This implementation file contains the method definitions 
+// for the `Comedy` class, which is a derived class of the `Movie` class.
+// -------------------------------------------------------------------- 
 
 #include "comedy.h"
 #include <iomanip>

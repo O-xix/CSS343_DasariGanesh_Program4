@@ -1,6 +1,11 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- drama.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This file implements the `Drama` class, which is a 
+// subclass of the `Movie` class.
+// -------------------------------------------------------------------- 
 
 #include "drama.h"
 #include <iostream>

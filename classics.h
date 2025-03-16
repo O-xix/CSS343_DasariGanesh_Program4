@@ -1,6 +1,14 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- classics.h ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This header file defines the `Classics` class, which is 
+// a derived class of the `Movie` class. The class represents classic 
+// movies with specific attributes such as the major actor's name and 
+// the release month, in addition to the common attributes inherited from 
+// the `Movie` base class.
+// -------------------------------------------------------------------- 
 
 #ifndef CLASSICS_H
 #define CLASSICS_H

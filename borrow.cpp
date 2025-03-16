@@ -1,6 +1,13 @@
-//
-// Created by tdasari on 2/25/25.
-//
+//-------------------------- borrow.cpp ---------------------------
+// Programmers: Teja Dasari and Shreyas Sundar Ganesh
+// Creation Date: 2/25/25
+// Date of last modification: 3/15/25
+// -------------------------------------------------------------------- 
+// Purpose: This implementation file contains the methods of the `Borrow` 
+// class, which handles the borrowing of movies in a movie rental system. 
+// The `process` method attempts to borrow a movie from the store, checking 
+// availability and updating stock.
+// -------------------------------------------------------------------- 
 
 #include "borrow.h"
 #include "movie.h"
